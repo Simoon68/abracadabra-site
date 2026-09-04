@@ -10,7 +10,8 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://abracadabra.gg">
 <meta property="og:image" content="https://abracadabra.gg/logo.png">
-<link rel="icon" href="logo.png" type="image/png">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -47,7 +48,8 @@ input,textarea,button,select{font:inherit;color:inherit}
 /* ---------- Nav ---------- */
 header{position:sticky;top:0;z-index:50;background:rgba(10,22,49,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;gap:30px;height:70px}
-.brand img{height:48px;width:auto}
+.brand{flex:none;display:flex;align-items:center}
+.brand img{height:44px;width:auto;flex:none}
 .nav-links{display:flex;gap:26px;font-size:.88rem;font-weight:600;letter-spacing:.02em;color:var(--mist)}
 .nav-links a{transition:color .15s}
 .nav-links a:hover{color:var(--foam)}
@@ -55,7 +57,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,22,49,.86);backdrop-f
 .nav-socials a{width:34px;height:34px;border-radius:var(--r-sm);display:grid;place-items:center;color:var(--mist);transition:color .15s,background .15s}
 .nav-socials a:hover{color:var(--foam);background:rgba(147,163,199,.12)}
 .nav-socials svg{width:17px;height:17px;fill:currentColor}
-.nav-cta{margin-left:10px;background:var(--tooth);color:var(--tooth-ink);font-family:var(--display);font-weight:800;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;padding:10px 16px;border-radius:var(--r-sm);transition:filter .15s}
+.nav-cta{margin-left:10px;white-space:nowrap;flex:none;background:var(--tooth);color:var(--tooth-ink);font-family:var(--display);font-weight:800;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;padding:10px 16px;border-radius:var(--r-sm);transition:filter .15s}
 .nav-cta:hover{filter:brightness(1.07)}
 
 /* ---------- Hero ---------- */
@@ -66,7 +68,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,22,49,.86);backdrop-f
 .hero-logo{width:min(300px,62vw);margin:0 auto;filter:drop-shadow(0 16px 36px rgba(61,143,224,.32));animation:drop .9s cubic-bezier(.2,.8,.2,1) both}
 @keyframes drop{from{opacity:0;transform:translateY(-22px) scale(.97)}to{opacity:1;transform:none}}
 .hero h1{font-size:clamp(2.4rem,6.4vw,4.6rem);font-weight:900;margin:22px auto 0;max-width:14ch;letter-spacing:-.04em}
-.hero-sub{margin:20px auto 0;max-width:58ch;font-size:clamp(1rem,2vw,1.15rem);color:var(--mist);font-weight:500;line-height:1.6}
+.hero-sub{margin:18px auto 0;max-width:58ch;font-size:clamp(1.05rem,2.2vw,1.3rem);color:var(--mist);font-weight:500;line-height:1.6}
 .live-pill{margin:34px auto 0;display:inline-flex;align-items:center;gap:12px;padding:12px 20px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:rgba(6,15,36,.7);font-size:.95rem;font-weight:500;color:var(--mist)}
 .live-dot{width:8px;height:8px;border-radius:50%;background:#4ADE80;animation:pulse 2s ease-out infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.45)}70%{box-shadow:0 0 0 8px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
@@ -80,7 +82,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,22,49,.86);backdrop-f
 .btn[disabled]{opacity:.6;cursor:default}
 
 /* ---------- Hero wordmark with glistening stars ---------- */
-.wordmark{position:relative;display:inline-block;font-size:clamp(2.6rem,7.2vw,5.4rem);font-weight:900;letter-spacing:-.045em;line-height:1;margin-top:18px;color:var(--foam)}
+.wordmark{position:relative;display:inline-block;white-space:nowrap;font-size:clamp(1.7rem,6.9vw,5.2rem);font-weight:900;letter-spacing:-.045em;line-height:1;margin-top:18px;color:var(--foam)}
 .wordmark::after{
   content:attr(data-text);position:absolute;inset:0;pointer-events:none;
   background-image:
@@ -188,6 +190,11 @@ section{padding:96px 0}
 .partner .cap{padding:20px 22px;display:flex;justify-content:space-between;align-items:baseline;gap:16px}
 .partner .cap b{font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em;text-transform:uppercase}
 .partner .cap span{color:var(--mist);font-size:.9rem;text-align:right}
+.merch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.merch-grid .partner{display:block;transition:border-color .15s}
+.merch-grid .partner:hover{border-color:var(--line-strong)}
+.merch-grid .cap{flex-direction:column;align-items:flex-start;gap:4px}
+.merch-grid .cap span{text-align:left}
 .toy-line{margin-top:22px;padding:22px 24px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .toy-line b{font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:-.01em;text-transform:uppercase}
 .toy-line span{color:var(--mist);font-size:.95rem}
@@ -229,21 +236,26 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
 
 /* ---------- Responsive ---------- */
 @media (max-width:900px){
-  .game-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .game-grid,.merch-grid{grid-template-columns:1fr 1fr}
   .hero-stats{gap:14px}
   .about-grid,.press-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
   .game-featured{grid-template-columns:1fr}
   .game-featured .art{aspect-ratio:16/9;min-height:auto}
 }
 @media (max-width:640px){
-  .nav-links{display:none}
-  .game-grid,.f-row,.partner-grid{grid-template-columns:1fr}
+  .nav{gap:14px}
+  .nav-cta{padding:9px 12px;font-size:.76rem}
+  .game-grid,.f-row,.partner-grid,.merch-grid{grid-template-columns:1fr}
   .hero-stats{grid-template-columns:1fr;gap:26px}
   .hero{padding:56px 0 64px}
   .game-featured .info{padding:26px}
   form{padding:22px}
   section{padding:68px 0}
-  .brand img{height:40px}
+  .brand img{height:38px}
+}
+@media (max-width:480px){
+  .nav-socials{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   .star,.live-dot,.hero-logo,.wordmark::after{animation:none!important}
@@ -255,7 +267,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top" aria-label="Abracadabra Studio home"><img src="logo.png" alt="Abracadabra Studio"></a>
+    <a class="brand" href="#top" aria-label="Abracadabra Studio home"><img src="hat.png" alt="Abracadabra Studio"></a>
     <nav class="nav-links" aria-label="Main">
       <a href="#games">Games</a>
       <a href="#press">Press</a>
@@ -293,7 +305,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
   <div class="wrap">
     <img class="hero-logo" src="logo.png" alt="">
     <h1 class="wordmark" data-text="Abracadabra Studio">Abracadabra Studio</h1>
-    <p class="hero-sub">An independent Roblox studio with over a decade of experience, building original flagship games in-house — including SharkBite, one of the most-played survival games on the platform.</p>
+    <p class="hero-sub">Building flagship experiences since 2014.</p>
     <div class="hero-actions">
       <a class="btn btn-gold" href="#games">Explore our games</a>
       <a class="btn btn-ghost" href="#about">About the studio</a>
@@ -301,7 +313,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
     <div class="hero-stats">
       <div class="hero-stat"><div class="big"><span class="live-dot" id="live-dot"></span><span id="live-count">1,600+</span></div><div class="cap">Players online now</div></div>
       <div class="hero-stat"><div class="big" id="stat-visits">2.4B+</div><div class="cap">Total visits</div></div>
-      <div class="hero-stat"><div class="big" id="stat-years">12</div><div class="cap">Years making games</div></div>
+      <div class="hero-stat"><div class="big" id="stat-members">1.3M+</div><div class="cap">Roblox group members</div></div>
     </div>
   </div>
 </div>
@@ -333,6 +345,11 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
     </div>
     <div class="press-grid">
       <div class="press-list">
+        <a class="press-item" href="https://www.thetimes.com/life-style/article/roblox-sharkbite-and-the-gamers-who-got-rich-as-teenagers-cck8lzhrz" target="_blank" rel="noopener">
+          <div class="src">The Times</div>
+          <div class="ttl">Roblox, SharkBite and the gamers who got rich as teenagers</div>
+          <div class="sum">A feature on SharkBite and the developers who built a studio before finishing school.</div>
+        </a>
         <a class="press-item" href="https://medium.com/roblox-developer/developer-spotlight-meet-abracadabra-1687d0107dde" target="_blank" rel="noopener">
           <div class="src">Roblox Developer Relations</div>
           <div class="ttl">Developer Spotlight: Meet Abracadabra</div>
@@ -343,7 +360,11 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
           <div class="ttl">Roblox at Princes Dock</div>
           <div class="sum">Abracadabra opens a new design and development studio at Liverpool Waters.</div>
         </a>
-        <!-- TODO: add further coverage (toy line launch, Roblox events, etc.) -->
+        <a class="press-item" href="https://www.pcgamesn.com/roblox/state-of-the-game-2026" target="_blank" rel="noopener">
+          <div class="src">PCGamesN</div>
+          <div class="ttl">Roblox: state of the game 2026</div>
+          <div class="sum">Simon and Matt on why variety is Roblox's biggest strength, and how parents are becoming players too.</div>
+        </a>
       </div>
       <aside class="press-facts">
         <h3>Quick facts</h3>
@@ -366,14 +387,16 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
     <div class="about-grid">
       <div>
         <div class="sec-head" style="margin-bottom:24px">
-          <h2>From a bowling alley to two billion visits</h2>
+          <h2>From rival clans to two billion visits</h2>
         </div>
-        <p><strong>Abracadabra Studio</strong> is the work of Simoon68 and Opplo — two friends who met at twelve, taught themselves to make games on Roblox, and shipped their first title together, <strong>RoBowling</strong>, in 2014. The Abracadabra group followed in 2017 with the release of SharkBite.</p>
+        <p><strong>Abracadabra Studio</strong> is the work of Simoon68 and Opplo, who met in 2010 during Roblox's clans and guilds era. Their clans became allies, and running them is where they learned to build, script and manage a team. Years later they published their first game together, <strong>Wings</strong>, in 2014 — followed in 2015 by their first hit, <strong>RoBowling</strong>. The Abracadabra group formed in 2017 with the release of SharkBite.</p>
         <p><strong>SharkBite</strong> grew into one of Roblox's most-played survival games without a single advert, and swam off the platform entirely: official SharkBite toys, including a Nerf blaster, have shipped to shelves at Walmart, Target, ASDA and Tesco.</p>
         <p>Today we build from our studio at Princes Dock, Liverpool, alongside a growing community of UK developers — and we're just getting started.</p>
       </div>
       <div class="timeline">
-        <div class="tl-item"><div class="year">2014</div><div class="what">RoBowling launches — the first game Simoon68 and Opplo ship together</div></div>
+        <div class="tl-item"><div class="year">2010</div><div class="what">Simoon68 and Opplo meet as allied clan leaders and start building together</div></div>
+        <div class="tl-item"><div class="year">2014</div><div class="what">Wings — the first game they publish together</div></div>
+        <div class="tl-item"><div class="year">2015</div><div class="what">RoBowling launches and becomes their first hit</div></div>
         <div class="tl-item"><div class="year">2017</div><div class="what">Abracadabra founded; SharkBite releases and finds its fins</div></div>
         <div class="tl-item"><div class="year">2018</div><div class="what">Backpacking launches — our open-world camping adventure</div></div>
         <div class="tl-item"><div class="year">2020</div><div class="what">SharkBite passes half a billion plays; official toys hit shelves worldwide</div></div>
@@ -403,9 +426,24 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
         <div class="cap"><b>Netflix</b><span>In-game collaboration</span></div>
       </div>
     </div>
-    <div class="toy-line">
-      <b>Nerf &amp; Jazwares</b>
-      <span>Official SharkBite toys, from the Nerf SHRK 500 blaster to the Duck Boat figure pack, sold at Walmart, Target, ASDA and Tesco.</span>
+    <div class="sec-head" style="margin:56px 0 28px">
+      <h2 style="font-size:clamp(1.5rem,3.4vw,2.1rem)">Official merchandise</h2>
+      <p>SharkBite toys made with Jazwares and Hasbro, on shelves worldwide.</p>
+    </div>
+    <div class="merch-grid">
+      <!-- Optional: add product photos to the images folder as merch-devseries.jpg, merch-nerf.jpg, merch-duckboat.jpg -->
+      <a class="partner" href="https://www.amazon.co.uk/DevSeries-SharkBite-2-75-Inch-Accessories-Exclusive/dp/B0C8Q5HP4Y" target="_blank" rel="noopener">
+        <div class="shot"><span class="ph">DevSeries</span><img src="images/merch-devseries.jpg" alt="DevSeries SharkBite figure" onerror="this.remove()"></div>
+        <div class="cap"><b>DevSeries figure</b><span>Jazwares · with exclusive virtual item</span></div>
+      </a>
+      <a class="partner" href="https://www.amazon.co.uk/Super-Soaker-Sharkbite-Exclusive-Multi-Coloured/dp/B09ZLCQC7Y" target="_blank" rel="noopener">
+        <div class="shot"><span class="ph">Nerf</span><img src="images/merch-nerf.jpg" alt="Nerf Super Soaker SharkBite blaster" onerror="this.remove()"></div>
+        <div class="cap"><b>Super Soaker SHRK 500</b><span>Nerf · Hasbro</span></div>
+      </a>
+      <a class="partner" href="https://www.amazon.com/clp/B07BC81C2D" target="_blank" rel="noopener">
+        <div class="shot"><span class="ph">Duck Boat</span><img src="images/merch-duckboat.jpg" alt="SharkBite Duck Boat toy" onerror="this.remove()"></div>
+        <div class="cap"><b>Duck Boat</b><span>Roblox Celebrity Collection · Jazwares</span></div>
+      </a>
     </div>
   </div>
 </section>
@@ -479,7 +517,6 @@ const THUMBS = "https://thumbnails.roproxy.com";
 /* ============================================================
    Content
    ============================================================ */
-const FOUNDED_YEAR = 2014;
 
 // Games outside the Abracadabra group to include (universe IDs).
 const EXTRA_UNIVERSE_IDS = [125714586]; // RoBowling
@@ -496,7 +533,7 @@ const GAME_INFO = [
   { match:/backpacking/i, flagship:true, genre:"Adventure",
     blurb:"An open-world camping adventure. Hike, fish, kayak, glide and pitch your tent under a living day–night sky." },
   { match:/robowling/i, flagship:true, genre:"Social",
-    blurb:"Ten-pin bowling with friends — the first game we ever shipped, and still rolling since 2014." },
+    blurb:"Ten-pin bowling with friends — our first hit, and still rolling since 2015." },
   { match:/tripmine/i, genre:"Party & Casual" },
   { match:/cake ?bomb/i, genre:"Party & Casual" },
 ];
@@ -585,7 +622,7 @@ function renderTop(games){
   const totalVisits = games.reduce((s,g) => s + (g.visits||0), 0);
   if (totalVisits > 0) $("stat-visits").textContent = compact(totalVisits) + "+";
 }
-$("stat-years").textContent = new Date().getFullYear() - FOUNDED_YEAR;
+
 
 function renderMarquee(games){
   const list = games.slice().sort((a,b) => (b.visits||0) - (a.visits||0));
@@ -622,6 +659,7 @@ async function loadLive(){
     const list = groupGames.data || [];
     if (!list.length) throw new Error("empty");
     const ids = [...new Set([...list.map(g => g.id), ...EXTRA_UNIVERSE_IDS])].join(",");
+    fetchJSON(`https://groups.roproxy.com/v1/groups/${GROUP_ID}`).then(g => { if (g?.memberCount) $("stat-members").textContent = compact(g.memberCount) + "+"; }).catch(() => {});
     const [details, icons, thumbs] = await Promise.all([
       fetchJSON(`${API}/v1/games?universeIds=${ids}`),
       fetchJSON(`${THUMBS}/v1/games/icons?universeIds=${ids}&size=512x512&format=Png&isCircular=false`).catch(() => null),
