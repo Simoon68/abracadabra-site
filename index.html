@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abracadabra Studio — Magical multiplayer worlds on Roblox</title>
+<meta name="description" content="Abracadabra Studio is the Roblox games studio behind SharkBite, SharkBite 2 and Backpacking — over 2.4 billion visits and counting.">
+<meta property="og:title" content="Abracadabra Studio">
+<meta property="og:description" content="Magical multiplayer worlds on Roblox. SharkBite, Backpacking and more — 2.4B+ visits.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://abracadabra.gg">
+<meta property="og:image" content="https://abracadabra.gg/logo.png">
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --tide:#0A1631;        /* page background */
+  --abyss:#060F24;       /* deeper bands + cards */
+  --card:#0E1B3A;
+  --foam:#F2F6FF;        /* primary text */
+  --mist:#93A3C7;        /* secondary text */
+  --tooth:#FFC24B;       /* action gold (logo gold) */
+  --tooth-ink:#1E1503;
+  --hat:#3D8FE0;         /* logo hat blue */
+  --spark-b:#3FD9FF;
+  --line:rgba(147,163,199,.16);
+  --line-strong:rgba(147,163,199,.34);
+  --r:10px;
+  --r-sm:6px;
+  --max:1140px;
+  --display:"Inter Tight","Inter",system-ui,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--tide);color:var(--foam);font-family:var(--body);font-weight:400;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3,.display{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:1;text-transform:uppercase}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+:focus-visible{outline:2px solid var(--tooth);outline-offset:3px;border-radius:3px}
+input,textarea,button,select{font:inherit;color:inherit}
+.num,.big,.fact b,.live-pill strong{font-family:var(--display);font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+
+/* ---------- Nav ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(10,22,49,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:30px;height:70px}
+.brand img{height:48px;width:auto}
+.nav-links{display:flex;gap:26px;font-size:.88rem;font-weight:600;letter-spacing:.02em;color:var(--mist)}
+.nav-links a{transition:color .15s}
+.nav-links a:hover{color:var(--foam)}
+.nav-socials{margin-left:auto;display:flex;align-items:center;gap:4px}
+.nav-socials a{width:34px;height:34px;border-radius:var(--r-sm);display:grid;place-items:center;color:var(--mist);transition:color .15s,background .15s}
+.nav-socials a:hover{color:var(--foam);background:rgba(147,163,199,.12)}
+.nav-socials svg{width:17px;height:17px;fill:currentColor}
+.nav-cta{margin-left:10px;background:var(--tooth);color:var(--tooth-ink);font-family:var(--display);font-weight:800;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;padding:10px 16px;border-radius:var(--r-sm);transition:filter .15s}
+.nav-cta:hover{filter:brightness(1.07)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:84px 0 88px;text-align:center;overflow:hidden}
+.stars{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--foam);opacity:0;animation:twinkle var(--dur,4s) ease-in-out var(--delay,0s) infinite}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.6)}50%{opacity:var(--peak,.7);transform:scale(1)}}
+.hero-logo{width:min(300px,62vw);margin:0 auto;filter:drop-shadow(0 16px 36px rgba(61,143,224,.32));animation:drop .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes drop{from{opacity:0;transform:translateY(-22px) scale(.97)}to{opacity:1;transform:none}}
+.hero h1{font-size:clamp(2.4rem,6.4vw,4.6rem);font-weight:900;margin:22px auto 0;max-width:14ch;letter-spacing:-.04em}
+.hero-sub{margin:20px auto 0;max-width:46ch;font-size:clamp(1rem,2vw,1.15rem);color:var(--mist);font-weight:500;line-height:1.6}
+.live-pill{margin:34px auto 0;display:inline-flex;align-items:center;gap:12px;padding:12px 20px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:rgba(6,15,36,.7);font-size:.95rem;font-weight:500;color:var(--mist)}
+.live-dot{width:8px;height:8px;border-radius:50%;background:#4ADE80;animation:pulse 2s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.45)}70%{box-shadow:0 0 0 8px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+.live-pill strong{color:var(--foam);font-size:1.15rem}
+.hero-actions{margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:var(--r-sm);font-family:var(--display);font-weight:800;font-size:.9rem;letter-spacing:.04em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:filter .15s,background .15s,border-color .15s}
+.btn-gold{background:var(--tooth);color:var(--tooth-ink)}
+.btn-gold:hover{filter:brightness(1.07)}
+.btn-ghost{border-color:var(--line-strong);color:var(--foam);background:transparent}
+.btn-ghost:hover{background:rgba(147,163,199,.1);border-color:var(--mist)}
+.btn[disabled]{opacity:.6;cursor:default}
+
+/* ---------- Marquee ---------- */
+.marquee-band{padding:24px 0 30px;border-block:1px solid var(--line);background:var(--abyss);overflow:hidden}
+.marquee-title{text-align:center;color:var(--mist);font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.marquee{display:flex;width:max-content;gap:14px;animation:scroll var(--speed,60s) linear infinite}
+.marquee-band:hover .marquee{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(calc(-50% - 7px))}}
+.mq-card{width:232px;flex:none;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card);transition:border-color .15s}
+.mq-card:hover{border-color:var(--line-strong)}
+.mq-art{aspect-ratio:16/9;background:linear-gradient(135deg,#132B60,#0A1A40);position:relative;display:grid;place-items:center;font-size:2rem}
+.mq-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mq-body{padding:12px 14px 14px}
+.mq-genre{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tooth)}
+.mq-name{font-family:var(--display);font-weight:800;font-size:.95rem;letter-spacing:-.01em;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mq-meta{display:flex;gap:14px;margin-top:7px;font-size:.8rem;color:var(--mist);font-weight:600;font-variant-numeric:tabular-nums}
+.mq-meta span{display:inline-flex;align-items:center;gap:5px}
+.mq-meta svg{width:13px;height:13px;fill:currentColor}
+.mq-meta .on{color:#4ADE80}
+
+/* ---------- Sections ---------- */
+section{padding:96px 0}
+.sec-head{max-width:60ch;margin-bottom:44px}
+.sec-head h2{font-size:clamp(2.1rem,5vw,3.4rem)}
+.sec-head p{margin-top:14px;color:var(--mist);font-size:1.08rem;font-weight:400;line-height:1.6}
+
+/* ---------- Games ---------- */
+.game-featured{display:grid;grid-template-columns:1.15fr 1fr;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card)}
+.game-featured .art{aspect-ratio:16/10;min-height:100%}
+.art{background:linear-gradient(135deg,#132B60,#0A1A40);display:grid;place-items:center;position:relative}
+.art img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.art .ph{font-size:4rem;opacity:.9}
+.game-featured .info{padding:44px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.game-title{font-family:var(--display);font-weight:800;font-size:2rem;letter-spacing:-.03em;text-transform:uppercase}
+.game-blurb{color:var(--mist);font-size:1rem;max-width:46ch;line-height:1.6}
+.game-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:6px}
+.meta-item .num{font-size:1.45rem}
+.meta-item .lbl{color:var(--mist);font-size:.82rem;font-weight:500;margin-top:2px}
+.meta-item .num.online{color:#4ADE80}
+.game-actions{margin-top:12px}
+.game-grid{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.game-card{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card);display:flex;flex-direction:column;transition:border-color .18s}
+.game-card:hover{border-color:var(--line-strong)}
+.game-card .art{aspect-ratio:16/10}
+.game-card .info{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.game-card .game-title{font-size:1.25rem}
+.game-card .game-blurb{font-size:.92rem}
+.game-card .game-meta{gap:22px;margin-top:auto;padding-top:8px}
+.game-card .meta-item .num{font-size:1.15rem}
+.play-link{color:var(--tooth);font-family:var(--display);font-weight:800;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase}
+.play-link:hover{text-decoration:underline}
+
+/* ---------- Press ---------- */
+.press-band{background:var(--abyss);border-block:1px solid var(--line)}
+.press-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:start}
+.press-list{display:flex;flex-direction:column;gap:12px}
+.press-item{display:block;padding:22px 24px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);transition:border-color .15s}
+.press-item:hover{border-color:var(--line-strong)}
+.press-item .src{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tooth)}
+.press-item .ttl{font-family:var(--display);font-weight:800;font-size:1.2rem;letter-spacing:-.02em;margin-top:6px}
+.press-item .sum{color:var(--mist);font-size:.94rem;margin-top:6px;line-height:1.55}
+.press-facts{border:1px solid var(--line);border-radius:var(--r);padding:28px;background:var(--card)}
+.press-facts h3{font-size:1.1rem;letter-spacing:-.01em;margin-bottom:10px}
+.fact{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:.92rem;color:var(--mist)}
+.fact:last-of-type{border-bottom:0}
+.fact b{font-size:1.05rem;color:var(--foam);text-align:right}
+.press-facts .btn{width:100%;margin-top:20px}
+
+/* ---------- About ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.about-grid p{color:var(--mist);font-size:1.02rem;line-height:1.65;margin-bottom:18px}
+.about-grid p strong{color:var(--foam);font-weight:600}
+.timeline{border-left:1px solid var(--line-strong);padding-left:28px;display:flex;flex-direction:column;gap:24px;margin-top:6px}
+.tl-item{position:relative}
+.tl-item::before{content:"";position:absolute;left:-33px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--tooth)}
+.tl-item .year{font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:-.01em;color:var(--foam)}
+.tl-item .what{color:var(--mist);font-size:.95rem;margin-top:2px}
+
+/* ---------- Brand activations ---------- */
+.brands{margin-top:88px;padding-top:80px;border-top:1px solid var(--line)}
+.brands-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:34px}
+.brands-head .sec-head{margin-bottom:0}
+.brand-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.brand-card{position:relative;overflow:hidden;padding:32px 28px 34px;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+.brand-card .icon{width:44px;height:44px;border-radius:var(--r-sm);display:grid;place-items:center;background:rgba(255,194,75,.12);color:var(--tooth);margin-bottom:22px}
+.brand-card .icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.brand-card h3{font-size:1.25rem;letter-spacing:-.02em;margin-bottom:10px}
+.brand-card p{color:var(--mist);font-size:.95rem;line-height:1.6}
+.brand-card .ghost{position:absolute;right:-18px;bottom:-24px;width:150px;height:150px;opacity:.06;pointer-events:none}
+.brand-card .ghost svg{width:100%;height:100%;fill:none;stroke:var(--foam);stroke-width:1.2}
+
+/* ---------- Contact ---------- */
+.contact{background:var(--abyss);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.contact-grid .sec-head{margin-bottom:28px}
+.contact-side p{color:var(--mist);font-size:1rem;margin-bottom:14px}
+.contact-side a.mail{color:var(--foam);font-weight:600;border-bottom:1px solid var(--tooth)}
+.reply-note{margin-top:26px;padding:16px 18px;border:1px solid var(--line);border-left:3px solid var(--tooth);border-radius:var(--r-sm);background:var(--card);font-size:.92rem;color:var(--mist)}
+.reply-note b{color:var(--foam);font-weight:600}
+form{border:1px solid var(--line);border-radius:var(--r);padding:30px;background:var(--card)}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.f-field{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.f-field label{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mist)}
+.f-field input,.f-field textarea{padding:13px 14px;border-radius:var(--r-sm);border:1px solid var(--line-strong);background:var(--abyss);color:var(--foam);transition:border-color .15s}
+.f-field input::placeholder,.f-field textarea::placeholder{color:rgba(147,163,199,.55)}
+.f-field input:focus,.f-field textarea:focus{outline:0;border-color:var(--tooth)}
+.f-field textarea{min-height:150px;resize:vertical}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{cursor:pointer}
+.chips input{position:absolute;opacity:0;width:0;height:0}
+.chips span{display:inline-block;padding:9px 14px;border-radius:var(--r-sm);border:1px solid var(--line-strong);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mist);transition:all .15s}
+.chips input:checked + span{background:var(--tooth);color:var(--tooth-ink);border-color:var(--tooth)}
+.chips input:focus-visible + span{outline:2px solid var(--tooth);outline-offset:2px}
+.form-status{margin-top:14px;font-weight:500;font-size:.92rem;min-height:1.4em}
+.form-status.ok{color:#4ADE80}
+.form-status.err{color:#FF8A8A}
+.hp{position:absolute;left:-9999px;opacity:0}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
+.foot{display:flex;align-items:center;gap:24px;flex-wrap:wrap;color:var(--mist);font-size:.86rem}
+.foot a{transition:color .15s}
+.foot a:hover{color:var(--foam)}
+.foot img{height:38px;width:auto}
+.foot .copy{margin-left:auto}
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px){
+  .game-grid,.brand-grid{grid-template-columns:1fr 1fr}
+  .about-grid,.press-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+  .game-featured{grid-template-columns:1fr}
+  .game-featured .art{aspect-ratio:16/9;min-height:auto}
+}
+@media (max-width:640px){
+  .nav-links{display:none}
+  .game-grid,.brand-grid,.f-row{grid-template-columns:1fr}
+  .hero{padding:56px 0 64px}
+  .game-featured .info{padding:26px}
+  form{padding:22px}
+  section{padding:68px 0}
+  .brand img{height:40px}
+}
+@media (prefers-reduced-motion:reduce){
+  .star,.live-dot,.hero-logo{animation:none!important}
+  .marquee{animation-duration:200s}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Abracadabra Studio home"><img src="logo.png" alt="Abracadabra Studio"></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#games">Games</a>
+      <a href="#press">Press</a>
+      <a href="#about">About</a>
+      <a href="#brands">Brands</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-socials">
+      <!-- TODO: replace the # links with your real Discord / YouTube / TikTok URLs -->
+      <a href="https://x.com/AbracadabraRBLX" target="_blank" rel="noopener" aria-label="Abracadabra on X">
+        <svg viewBox="0 0 24 24"><path d="M18.9 1.1h3.7l-8.1 9.3L24 22.9h-7.5l-5.9-7.7-6.7 7.7H.2l8.7-9.9L0 1.1h7.7l5.3 7 6-7zm-1.3 19.5h2L6.6 3.2H4.4l13.2 17.4z"/></svg>
+      </a>
+      <a href="https://www.roblox.com/groups/997074/Abracadabra" target="_blank" rel="noopener" aria-label="Abracadabra Roblox group">
+        <svg viewBox="0 0 24 24"><path d="M5.2 0 0 18.8 18.8 24 24 5.2 5.2 0zm9.3 14.7-5-1.4 1.4-5 5 1.4-1.4 5z"/></svg>
+      </a>
+      <a href="#" aria-label="Abracadabra Discord server">
+        <svg viewBox="0 0 24 24"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.2a18 18 0 0 0-5.5 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9 -.2 13.4.2 17.8a19.9 19.9 0 0 0 6 3l1.3-2.1c-.7-.3-1.4-.6-2-1l.5-.4a14.2 14.2 0 0 0 12.1 0l.5.4c-.7.4-1.4.7-2.1 1l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.1-.8-9.5-3.5-13.4zM8 15.3c-1.2 0-2.1-1-2.1-2.3S6.8 10.7 8 10.7s2.2 1 2.1 2.3c0 1.2-.9 2.3-2.1 2.3zm8 0c-1.2 0-2.1-1-2.1-2.3s.9-2.3 2.1-2.3 2.2 1 2.1 2.3c0 1.2-.9 2.3-2.1 2.3z"/></svg>
+      </a>
+      <a href="#" aria-label="Abracadabra on YouTube">
+        <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12c0 2 .2 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.3-1.9.5-3.8.5-5.8s-.2-3.9-.5-5.8zM9.5 15.6V8.4L15.8 12l-6.3 3.6z"/></svg>
+      </a>
+      <a href="#" aria-label="Abracadabra on TikTok">
+        <svg viewBox="0 0 24 24"><path d="M12.5 0h4.1c.3 2.6 1.9 4.6 4.4 5.1v4.1c-1.7 0-3.2-.5-4.5-1.4v7.4A7 7 0 1 1 9.5 8.3v4.2a2.9 2.9 0 1 0 3 2.9V0z"/></svg>
+      </a>
+    </div>
+    <a class="nav-cta" href="https://www.roblox.com/groups/997074/Abracadabra" target="_blank" rel="noopener">Play our games</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="stars" id="stars" aria-hidden="true"></div>
+  <div class="wrap">
+    <img class="hero-logo" src="logo.png" alt="Abracadabra Studio">
+    <h1>Magical multiplayer worlds on Roblox</h1>
+    <p class="hero-sub">The studio behind SharkBite and Backpacking — played over 2.4&nbsp;billion times since 2017.</p>
+    <div class="live-pill" id="live-pill">
+      <span class="live-dot" id="live-dot"></span>
+      <span><strong id="live-count">1,600+</strong> <span id="live-label">players in our worlds right now</span></span>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn-gold" href="#games">Explore our games</a>
+      <a class="btn btn-ghost" href="#brands">Partner with us</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee-band" aria-label="All Abracadabra experiences">
+  <p class="marquee-title">Every world we've ever shipped</p>
+  <div class="marquee" id="marquee"></div>
+</div>
+
+<!-- ============ GAMES ============ -->
+<section id="games">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Our biggest games</h2>
+      <p>Player counts and visits update straight from Roblox.</p>
+    </div>
+    <div id="game-featured-slot"></div>
+    <div class="game-grid" id="game-grid"></div>
+  </div>
+</section>
+
+<!-- ============ PRESS ============ -->
+<section class="press-band" id="press">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Press</h2>
+      <p>Coverage, quick facts and everything a journalist needs to write about us.</p>
+    </div>
+    <div class="press-grid">
+      <div class="press-list">
+        <a class="press-item" href="https://medium.com/roblox-developer/developer-spotlight-meet-abracadabra-1687d0107dde" target="_blank" rel="noopener">
+          <div class="src">Roblox Developer Relations</div>
+          <div class="ttl">Developer Spotlight: Meet Abracadabra</div>
+          <div class="sum">The origin story of Simoon68 and Opplo, and how SharkBite grew without ever running an advert.</div>
+        </a>
+        <a class="press-item" href="https://investliverpool.com/news/roblox-at-princes-dock-global-gaming-group-sets-up-new-design-and-development-studio-at-liverpool-waters/" target="_blank" rel="noopener">
+          <div class="src">Invest Liverpool</div>
+          <div class="ttl">Roblox at Princes Dock</div>
+          <div class="sum">Abracadabra opens a new design and development studio at Liverpool Waters.</div>
+        </a>
+        <!-- TODO: add further coverage (toy line launch, Roblox events, etc.) -->
+      </div>
+      <aside class="press-facts">
+        <h3>Quick facts</h3>
+        <div class="fact"><span>Founded</span><b>2017</b></div>
+        <div class="fact"><span>Founders</span><b>Simoon68 &amp; Opplo</b></div>
+        <div class="fact"><span>Based in</span><b>Liverpool, UK</b></div>
+        <div class="fact"><span>Total visits</span><b id="stat-visits">2.4B+</b></div>
+        <div class="fact"><span>Group members</span><b>1.3M+</b></div>
+        <div class="fact"><span>Toy partners</span><b>Walmart, Target, Tesco</b></div>
+        <!-- TODO: link a zipped press kit (logos, screenshots, key art) -->
+        <a class="btn btn-ghost" href="#contact">Request the press kit</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT + BRANDS ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <div class="sec-head" style="margin-bottom:24px">
+          <h2>From two twelve-year-olds to two billion visits</h2>
+        </div>
+        <p><strong>Abracadabra Studio</strong> was founded in 2017 by Simoon68 and Opplo — two friends who met at twelve and taught themselves to make games on Roblox.</p>
+        <p>Our first group release, <strong>SharkBite</strong>, grew into one of Roblox's most-played survival games and swam off the platform entirely: official SharkBite toys, including a Nerf blaster, have shipped to shelves at Walmart, Target, ASDA and Tesco.</p>
+        <p>Today we build from our studio at Princes Dock, Liverpool, alongside a growing community of UK developers — and we're just getting started.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item"><div class="year">2017</div><div class="what">Abracadabra founded; SharkBite releases and finds its fins</div></div>
+        <div class="tl-item"><div class="year">2018</div><div class="what">Backpacking launches — our open-world camping adventure</div></div>
+        <div class="tl-item"><div class="year">2020</div><div class="what">SharkBite passes half a billion plays; official toys hit shelves worldwide</div></div>
+        <div class="tl-item"><div class="year">2022</div><div class="what">SharkBite 2 launches with rebuilt oceans and new sharks</div></div>
+        <div class="tl-item"><div class="year">Today</div><div class="what">2.4B+ combined visits and a new studio home in Liverpool</div></div>
+      </div>
+    </div>
+
+    <div class="brands" id="brands">
+      <div class="brands-head">
+        <div class="sec-head">
+          <h2>Brand activations</h2>
+          <p>Put your brand inside worlds that millions of players already love — built by the team that made them.</p>
+        </div>
+        <a class="btn btn-gold" href="#contact">Partner with us</a>
+      </div>
+      <div class="brand-grid">
+        <div class="brand-card">
+          <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+          <h3>Custom branded worlds</h3>
+          <p>A standalone experience designed around your brand, from concept and art to launch and live ops.</p>
+          <div class="ghost"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+        </div>
+        <div class="brand-card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
+          <h3>In-game drops and events</h3>
+          <p>Limited-time items, skins and events inside SharkBite or Backpacking — in front of players on day one.</p>
+          <div class="ghost"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
+        </div>
+        <div class="brand-card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 1-3s0 3 2 3c1-3-1-6 2-10z"/></svg></div>
+          <h3>Activation campaigns</h3>
+          <p>Cross-game campaigns with creator content, codes and social pushes, measured against real player numbers.</p>
+          <div class="ghost"><svg viewBox="0 0 24 24"><path d="M12 2c1 4 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 1-3s0 3 2 3c1-3-1-6 2-10z"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-side">
+      <div class="sec-head">
+        <h2>Get in touch</h2>
+        <p>Brand partnerships, press, or you just really love sharks — tell us what you're thinking.</p>
+      </div>
+      <p>Prefer email? Write to <a class="mail" href="mailto:business@abracadabra.gg">business@abracadabra.gg</a>.</p>
+      <div class="reply-note">We usually reply within <b>24–48 hours</b>. For anything urgent, reach us on X.</div>
+    </div>
+    <form id="contact-form" novalidate>
+      <div class="f-row">
+        <div class="f-field"><label for="f-name">Name</label><input id="f-name" name="name" required placeholder="Your name" autocomplete="name"></div>
+        <div class="f-field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required placeholder="you@company.com" autocomplete="email"></div>
+      </div>
+      <div class="f-field"><label for="f-company">Company or brand</label><input id="f-company" name="company" placeholder="Optional" autocomplete="organization"></div>
+      <div class="f-field">
+        <label>What's this about?</label>
+        <div class="chips">
+          <label><input type="radio" name="topic" value="Brand activation" checked><span>Brand activation</span></label>
+          <label><input type="radio" name="topic" value="Press / media"><span>Press / media</span></label>
+          <label><input type="radio" name="topic" value="Custom game"><span>Custom game</span></label>
+          <label><input type="radio" name="topic" value="Sponsorship"><span>Sponsorship</span></label>
+          <label><input type="radio" name="topic" value="Other"><span>Other</span></label>
+        </div>
+      </div>
+      <div class="f-field"><label for="f-msg">Message</label><textarea id="f-msg" name="message" required placeholder="Tell us about your brand, your goals and what you'd like to build."></textarea></div>
+      <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+      <button class="btn btn-gold" type="submit" id="f-submit">Send message</button>
+      <div class="form-status" id="form-status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <img src="logo.png" alt="Abracadabra Studio">
+    <a href="#games">Games</a>
+    <a href="#press">Press</a>
+    <a href="#brands">Brands</a>
+    <a href="https://www.roblox.com/groups/997074/Abracadabra" target="_blank" rel="noopener">Roblox group</a>
+    <span class="copy">© 2026 Abracadabra Studio. All rights reserved. Not affiliated with Roblox Corporation.</span>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   CONFIG
+   ============================================================ */
+const GROUP_ID = 997074;
+const REFRESH_MS = 60000;
+const CONTACT_EMAIL = "business@abracadabra.gg";
+
+// Email forwarding for the contact form. Sign up at https://formspree.io (free),
+// create a form that delivers to business@abracadabra.gg, and paste its endpoint here:
+//   const FORM_ENDPOINT = "https://formspree.io/f/xxxxxxxx";
+// Until then the form falls back to opening the visitor's email app pre-filled.
+const FORM_ENDPOINT = "";
+
+// Roblox API mirror with CORS enabled. Swap for your own proxy if you prefer.
+const API = "https://games.roproxy.com";
+const THUMBS = "https://thumbnails.roproxy.com";
+
+/* ============================================================
+   Content
+   ============================================================ */
+const BLURBS = {
+  734159876:  "The round-based survival classic. Board a boat, arm up, and outlast a player-controlled shark — or become the shark yourself.",
+  3365661357: "The sequel — rebuilt oceans, boat skins, shark skins and sharper survival.",
+  708100196:  "An open-world camping adventure. Hike, fish, kayak, glide and pitch your tent under a living day–night sky.",
+};
+const DEFAULT_BLURB = "One of our newest worlds — jump in and see for yourself.";
+
+const FALLBACK_GAMES = [
+  { name:"SharkBite Classic", placeId:734159876,  playing:null, visits:1630000000, genre:"Survival",  emoji:"🦈" },
+  { name:"SharkBite 2",       placeId:3365661357, playing:null, visits:484000000,  genre:"Survival",  emoji:"🌊" },
+  { name:"Backpacking",       placeId:708100196,  playing:null, visits:334000000,  genre:"Adventure", emoji:"⛺" },
+  { name:"Tripmine Trouble",  placeId:null,       playing:null, visits:null,       genre:"Party",     emoji:"💣" },
+];
+
+/* ============================================================
+   Helpers
+   ============================================================ */
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function compact(n){
+  if (n == null) return "—";
+  if (n >= 1e9) return (n/1e9).toFixed(1).replace(/\.0$/,"") + "B";
+  if (n >= 1e6) return (n/1e6).toFixed(1).replace(/\.0$/,"") + "M";
+  if (n >= 1e3) return Math.round(n/1e3) + "K";
+  return String(n);
+}
+const cleanName = (n) => n.replace(/\[[^\]]*\]\s*/g,"").replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu,"").trim();
+const gameUrl = (g) => g.placeId ? `https://www.roblox.com/games/${g.placeId}` : `https://www.roblox.com/groups/${GROUP_ID}`;
+
+async function fetchJSON(url, ms=8000){
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), ms);
+  try{
+    const r = await fetch(url, { signal: ctrl.signal });
+    if (!r.ok) throw new Error(r.status);
+    return await r.json();
+  } finally { clearTimeout(timer); }
+}
+
+/* ============================================================
+   Renderers
+   ============================================================ */
+const ICON_PEOPLE = '<svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0 4 4 0 0 0 8 0zm-4 6c-4.4 0-8 2-8 4.5V23h16v-1.5C20 19 16.4 17 12 17z"/></svg>';
+const ICON_EYE = '<svg viewBox="0 0 24 24"><path d="M12 5C6 5 2 12 2 12s4 7 10 7 10-7 10-7-4-7-10-7zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>';
+
+function gameCard(g, featured){
+  const url = gameUrl(g), name = esc(cleanName(g.name));
+  const art = g.icon ? `<img src="${g.icon}" alt="${name} game icon" loading="lazy">` : `<span class="ph" aria-hidden="true">${g.emoji || "✦"}</span>`;
+  const playing = g.playing != null ? `<div class="meta-item"><div class="num online">${g.playing.toLocaleString()}</div><div class="lbl">playing now</div></div>` : "";
+  return `
+    <div class="${featured ? "game-featured" : "game-card"}">
+      <a class="art" href="${url}" target="_blank" rel="noopener" aria-label="Play ${name} on Roblox">${art}</a>
+      <div class="info">
+        <div class="game-title">${name}</div>
+        <p class="game-blurb">${esc(g.blurb || BLURBS[g.placeId] || DEFAULT_BLURB)}</p>
+        <div class="game-meta">${playing}<div class="meta-item"><div class="num">${compact(g.visits)}</div><div class="lbl">total visits</div></div></div>
+        <div class="game-actions"><a class="${featured ? "btn btn-gold" : "play-link"}" href="${url}" target="_blank" rel="noopener">Play on Roblox</a></div>
+      </div>
+    </div>`;
+}
+
+function marqueeCard(g){
+  const name = esc(cleanName(g.name));
+  const art = g.thumb ? `<img src="${g.thumb}" alt="" loading="lazy">` : `<span aria-hidden="true">${g.emoji || "✦"}</span>`;
+  return `
+    <a class="mq-card" href="${gameUrl(g)}" target="_blank" rel="noopener" aria-label="${name}">
+      <div class="mq-art">${art}</div>
+      <div class="mq-body">
+        <div class="mq-genre">${esc(g.genre || "Roblox")}</div>
+        <div class="mq-name">${name}</div>
+        <div class="mq-meta">
+          <span class="on">${ICON_PEOPLE}${g.playing != null ? g.playing.toLocaleString() : "—"}</span>
+          <span>${ICON_EYE}${compact(g.visits)}</span>
+        </div>
+      </div>
+    </a>`;
+}
+
+function renderTop(games){
+  const top = games.filter(g => (g.visits||0) > 100000).sort((a,b) => (b.visits||0) - (a.visits||0));
+  const [first, ...rest] = top;
+  if (first) $("game-featured-slot").innerHTML = gameCard(first, true);
+  $("game-grid").innerHTML = rest.slice(0, 6).map(g => gameCard(g, false)).join("");
+  const totalVisits = games.reduce((s,g) => s + (g.visits||0), 0);
+  if (totalVisits > 0) $("stat-visits").textContent = compact(totalVisits) + "+";
+}
+
+function renderMarquee(games){
+  const list = games.slice().sort((a,b) => (b.visits||0) - (a.visits||0));
+  // Duplicate the track so the loop is seamless; pad short lists so it fills the screen.
+  let track = list;
+  while (track.length < 8) track = track.concat(list);
+  const html = track.map(marqueeCard).join("");
+  const el = $("marquee");
+  el.innerHTML = html + html;
+  el.style.setProperty("--speed", Math.max(30, track.length * 5) + "s");
+}
+
+let lastShown = null;
+function setLiveCount(total){
+  const el = $("live-count");
+  if (total == null){ $("live-dot").style.display = "none"; el.textContent = "1,600+"; return; }
+  $("live-dot").style.display = "";
+  const from = lastShown ?? Math.max(0, total - 40);
+  const t0 = performance.now(), dur = 900;
+  (function tick(t){
+    const p = Math.min(1, (t - t0)/dur), e = 1 - Math.pow(1-p, 3);
+    el.textContent = Math.round(from + (total - from)*e).toLocaleString();
+    if (p < 1) requestAnimationFrame(tick);
+  })(t0);
+  lastShown = total;
+}
+
+/* ============================================================
+   Live Roblox data
+   ============================================================ */
+async function loadLive(){
+  try{
+    const groupGames = await fetchJSON(`${API}/v2/groups/${GROUP_ID}/games?accessFilter=2&sortOrder=Desc&limit=50`);
+    const list = groupGames.data || [];
+    if (!list.length) throw new Error("empty");
+    const ids = list.map(g => g.id).join(",");
+    const [details, icons, thumbs] = await Promise.all([
+      fetchJSON(`${API}/v1/games?universeIds=${ids}`),
+      fetchJSON(`${THUMBS}/v1/games/icons?universeIds=${ids}&size=512x512&format=Png&isCircular=false`).catch(() => null),
+      fetchJSON(`${THUMBS}/v1/games/multiget/thumbnails?universeIds=${ids}&size=768x432&format=Png&countPerUniverse=1`).catch(() => null),
+    ]);
+    const iconMap = {}, thumbMap = {};
+    (icons?.data || []).forEach(i => { if (i.state === "Completed") iconMap[i.targetId] = i.imageUrl; });
+    (thumbs?.data || []).forEach(t => { const f = (t.thumbnails||[]).find(x => x.state === "Completed"); if (f) thumbMap[t.universeId] = f.imageUrl; });
+    const games = (details.data || []).map(d => ({
+      name: d.name, placeId: d.rootPlaceId, playing: d.playing, visits: d.visits, genre: d.genre,
+      icon: iconMap[d.id], thumb: thumbMap[d.id] || iconMap[d.id],
+    })).filter(g => (g.visits||0) > 10000);
+    if (!games.length) throw new Error("empty");
+    renderTop(games);
+    renderMarquee(games);
+    setLiveCount(games.reduce((s,g) => s + (g.playing||0), 0));
+  } catch(err){
+    console.warn("Live Roblox data unavailable, using fallback:", err);
+    renderTop(FALLBACK_GAMES);
+    renderMarquee(FALLBACK_GAMES);
+    setLiveCount(null);
+  }
+}
+
+/* ============================================================
+   Contact form
+   ============================================================ */
+$("contact-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const form = e.target, status = $("form-status"), btn = $("f-submit");
+  status.className = "form-status"; status.textContent = "";
+  if (!form.name.value.trim() || !form.email.checkValidity() || !form.message.value.trim()){
+    status.classList.add("err"); status.textContent = "Please add your name, a valid email and a message.";
+    return;
+  }
+  const data = Object.fromEntries(new FormData(form).entries());
+  const subject = `[abracadabra.gg] ${data.topic} — ${data.name}${data.company ? " (" + data.company + ")" : ""}`;
+  if (!FORM_ENDPOINT){
+    const body = `Name: ${data.name}\nEmail: ${data.email}\nCompany: ${data.company || "-"}\nTopic: ${data.topic}\n\n${data.message}`;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    status.classList.add("ok"); status.textContent = "Opening your email app…";
+    return;
+  }
+  btn.disabled = true; btn.textContent = "Sending…";
+  try{
+    const r = await fetch(FORM_ENDPOINT, { method:"POST", headers:{ "Content-Type":"application/json", "Accept":"application/json" }, body: JSON.stringify({ ...data, _subject: subject }) });
+    if (!r.ok) throw new Error(r.status);
+    form.reset();
+    status.classList.add("ok"); status.textContent = "Sent — we'll get back to you soon.";
+    btn.textContent = "Sent";
+  } catch(err){
+    status.classList.add("err"); status.textContent = `Couldn't send. Email us directly at ${CONTACT_EMAIL}.`;
+    btn.disabled = false; btn.textContent = "Send message";
+  }
+});
+
+/* ============================================================
+   Star field
+   ============================================================ */
+(function stars(){
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  let html = "";
+  for (let i = 0; i < 40; i++){
+    html += `<span class="star" style="left:${(Math.random()*100).toFixed(1)}%;top:${(Math.random()*92).toFixed(1)}%;--dur:${(2.5+Math.random()*4).toFixed(1)}s;--delay:${(Math.random()*5).toFixed(1)}s;--peak:${(0.3+Math.random()*0.5).toFixed(2)}"></span>`;
+  }
+  $("stars").innerHTML = html;
+})();
+
+loadLive();
+setInterval(loadLive, REFRESH_MS);
+</script>
+</body>
+</html>
