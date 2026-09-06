@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abracadabra Studio — Magical multiplayer worlds on Roblox</title>
-<meta name="description" content="Abracadabra Studio is the Roblox games studio behind SharkBite, SharkBite 2 and Backpacking — over 2.4 billion visits and counting.">
+<title>Abracadabra Studio | Roblox games studio behind SharkBite and Backpacking</title>
+<meta name="description" content="Abracadabra Studio is the Roblox games studio behind SharkBite, SharkBite 2 and Backpacking, with over 2.4 billion visits and counting.">
 <meta property="og:title" content="Abracadabra Studio">
-<meta property="og:description" content="Magical multiplayer worlds on Roblox. SharkBite, Backpacking and more — 2.4B+ visits.">
+<meta property="og:description" content="The Roblox studio behind SharkBite and Backpacking. Building flagship experiences since 2014.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://abracadabra.gg">
 <meta property="og:image" content="https://abracadabra.gg/logo.png">
@@ -162,9 +162,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,22,49,.86);backdrop-f
 /* ---------- Marquee ---------- */
 .marquee-band{padding:24px 0 30px;border-block:1px solid var(--line);background:var(--abyss);overflow:hidden}
 .marquee-title{text-align:center;color:var(--mist);font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
-.marquee{display:flex;width:max-content;gap:14px;animation:scroll var(--speed,60s) linear infinite}
-.marquee-band:hover .marquee{animation-play-state:paused}
-@keyframes scroll{to{transform:translateX(calc(-50% - 7px))}}
+.marquee{display:flex;width:100%;overflow:hidden}
+.mq-track{display:flex;flex:none;gap:14px;padding-right:14px;animation:scroll var(--speed,60s) linear infinite;will-change:transform}
+.marquee-band:hover .mq-track{animation-play-state:paused}
+@keyframes scroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-100%,0,0)}}
 .mq-card{width:232px;flex:none;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card);transition:border-color .15s}
 .mq-card:hover{border-color:var(--line-strong)}
 .mq-art{aspect-ratio:16/9;background:linear-gradient(135deg,#132B60,#0A1A40);position:relative;display:grid;place-items:center;font-size:2rem}
@@ -210,7 +211,8 @@ section{padding:96px 0}
 .play-link:hover{text-decoration:underline}
 
 /* ---------- Press ---------- */
-.press-band{background:var(--abyss);border-block:1px solid var(--line)}
+.press-band{background:var(--abyss);border-block:1px solid var(--line);padding:56px 0}
+.press-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .press-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:start}
 .press-list{display:flex;flex-direction:column;gap:12px}
 .press-item{display:block;padding:22px 24px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);transition:border-color .15s}
@@ -322,6 +324,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
   .dots{bottom:10px}
   .hero-stats{gap:14px}
   .about-grid,.press-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+  .press-row{grid-template-columns:1fr}
   .game-featured{grid-template-columns:1fr}
   .game-featured .art{aspect-ratio:16/9;min-height:auto}
 }
@@ -342,7 +345,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
 @media (prefers-reduced-motion:reduce){
   .star,.shooter,.live-dot,.hero-logo,.wordmark::before,.wordmark::after,.hero-glow{animation:none!important}
   .shooter{display:none}
-  .marquee{animation-duration:200s}
+  .mq-track{animation-duration:200s}
 }
 </style>
 </head>
@@ -353,9 +356,9 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
     <a class="brand" href="#top" aria-label="Abracadabra Studio home"><img src="hat.png" alt="Abracadabra Studio"></a>
     <nav class="nav-links" aria-label="Main">
       <a href="#games">Games</a>
-      <a href="#press">Press</a>
       <a href="#about">About</a>
       <a href="#partners">Partners</a>
+      <a href="#press">Press</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-socials">
@@ -416,72 +419,26 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
   </div>
 </section>
 
-<!-- ============ PRESS ============ -->
-<section class="press-band" id="press">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Press</h2>
-      <p>Coverage, quick facts and everything a journalist needs to write about us.</p>
-    </div>
-    <div class="press-grid">
-      <div class="press-list">
-        <a class="press-item" href="https://www.thetimes.com/life-style/article/roblox-sharkbite-and-the-gamers-who-got-rich-as-teenagers-cck8lzhrz" target="_blank" rel="noopener">
-          <div class="src">The Times</div>
-          <div class="ttl">Roblox, SharkBite and the gamers who got rich as teenagers</div>
-          <div class="sum">A feature on SharkBite and the developers who built a studio before finishing school.</div>
-        </a>
-        <a class="press-item" href="https://medium.com/roblox-developer/developer-spotlight-meet-abracadabra-1687d0107dde" target="_blank" rel="noopener">
-          <div class="src">Roblox Developer Relations</div>
-          <div class="ttl">Developer Spotlight: Meet Abracadabra</div>
-          <div class="sum">The origin story of Simoon68 and Opplo, and how SharkBite grew without ever running an advert.</div>
-        </a>
-        <a class="press-item" href="https://investliverpool.com/news/roblox-at-princes-dock-global-gaming-group-sets-up-new-design-and-development-studio-at-liverpool-waters/" target="_blank" rel="noopener">
-          <div class="src">Invest Liverpool</div>
-          <div class="ttl">Roblox at Princes Dock</div>
-          <div class="sum">Abracadabra opens a new design and development studio at Liverpool Waters.</div>
-        </a>
-        <a class="press-item" href="https://www.pcgamesn.com/roblox/state-of-the-game-2026" target="_blank" rel="noopener">
-          <div class="src">PCGamesN</div>
-          <div class="ttl">Roblox: state of the game 2026</div>
-          <div class="sum">Simon and Matt on why variety is Roblox's biggest strength, and how parents are becoming players too.</div>
-        </a>
-      </div>
-      <aside class="press-facts">
-        <h3>Quick facts</h3>
-        <div class="fact"><span>Making games since</span><b>2014</b></div>
-        <div class="fact"><span>Founders</span><b>Simoon68 &amp; Opplo</b></div>
-        <div class="fact"><span>Based in</span><b>Liverpool, UK</b></div>
-        <div class="fact"><span>Total visits</span><b id="stat-visits">2.4B+</b></div>
-        <div class="fact"><span>Group members</span><b>1.3M+</b></div>
-        <div class="fact"><span>Toy partners</span><b>Walmart, Target, Tesco</b></div>
-        <!-- TODO: link a zipped press kit (logos, screenshots, key art) -->
-        <a class="btn btn-ghost" href="#contact">Request the press kit</a>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ABOUT + BRANDS ============ -->
+<!-- ============ ABOUT ============ -->
 <section id="about">
   <div class="wrap">
     <div class="about-grid">
       <div>
         <div class="sec-head" style="margin-bottom:24px">
-          <h2>From rival clans to two billion visits</h2>
+          <h2>Our story</h2>
         </div>
-        <p><strong>Abracadabra Studio</strong> is the work of Simoon68 and Opplo, who met in 2010 during Roblox's clans and guilds era. Their clans became allies, and running them is where they learned to build, script and manage a team. Years later they published their first game together, <strong>Wings</strong>, in 2014 — followed in 2015 by their first hit, <strong>RoBowling</strong>. The Abracadabra group formed in 2017 with the release of SharkBite.</p>
+        <p><strong>Abracadabra Studio</strong> is the work of Simoon68 and Opplo, who met on Roblox in 2010 when they were both twelve. It was the clans and guilds era, their clans became allies, and running them is where they learned to build, script and manage a team. In 2014 they published their first game together, <strong>Wings</strong>, and in 2015 came their first hit, <strong>RoBowling</strong>. The Abracadabra group formed in 2017 with the release of SharkBite.</p>
         <p><strong>SharkBite</strong> grew into one of Roblox's most-played survival games without a single advert, and swam off the platform entirely: official SharkBite toys, including a Nerf blaster, have shipped to shelves at Walmart, Target, ASDA and Tesco.</p>
-        <p>Today we build from our studio at Princes Dock, Liverpool, alongside a growing community of UK developers — and we're just getting started.</p>
       </div>
       <div class="timeline">
-        <div class="tl-item"><div class="year">2010</div><div class="what">Simoon68 and Opplo meet as allied clan leaders and start building together</div></div>
-        <div class="tl-item"><div class="year">2014</div><div class="what">Wings — the first game they publish together</div></div>
+        <div class="tl-item"><div class="year">2010</div><div class="what">Simoon68 and Opplo meet on Roblox, aged twelve, as allied clan leaders</div></div>
+        <div class="tl-item"><div class="year">2014</div><div class="what">Wings, the first game they publish together</div></div>
         <div class="tl-item"><div class="year">2015</div><div class="what">RoBowling launches and becomes their first hit</div></div>
         <div class="tl-item"><div class="year">2017</div><div class="what">Abracadabra founded; SharkBite releases and finds its fins</div></div>
-        <div class="tl-item"><div class="year">2018</div><div class="what">Backpacking launches — our open-world camping adventure</div></div>
+        <div class="tl-item"><div class="year">2018</div><div class="what">Backpacking launches, our open-world camping adventure</div></div>
         <div class="tl-item"><div class="year">2020</div><div class="what">SharkBite passes half a billion plays; official toys hit shelves worldwide</div></div>
         <div class="tl-item"><div class="year">2022</div><div class="what">SharkBite 2 launches with rebuilt oceans and new sharks</div></div>
-        <div class="tl-item"><div class="year">Today</div><div class="what">2.4B+ combined visits and a new studio home in Liverpool</div></div>
+        <div class="tl-item"><div class="year">Today</div><div class="what">Over 2.4 billion combined visits, and still building</div></div>
       </div>
     </div>
 
@@ -489,7 +446,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
 </section>
 
 <!-- ============ PARTNERS ============ -->
-<section class="partners" id="partners">
+<section class="partners" id="partners" style="border-top:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-head">
       <h2>Brands we've worked with</h2>
@@ -549,13 +506,36 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
   </div>
 </section>
 
+<!-- ============ PRESS ============ -->
+<section class="press-band" id="press">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:26px">
+      <h2 style="font-size:clamp(1.5rem,3.4vw,2.1rem)">Press</h2>
+    </div>
+    <div class="press-row">
+      <a class="press-item" href="https://www.thetimes.com/life-style/article/roblox-sharkbite-and-the-gamers-who-got-rich-as-teenagers-cck8lzhrz" target="_blank" rel="noopener">
+        <div class="src">The Times</div>
+        <div class="ttl">Roblox, SharkBite and the gamers who got rich as teenagers</div>
+      </a>
+      <a class="press-item" href="https://www.pcgamesn.com/roblox/state-of-the-game-2026" target="_blank" rel="noopener">
+        <div class="src">PCGamesN</div>
+        <div class="ttl">Roblox: state of the game 2026</div>
+      </a>
+      <a class="press-item" href="https://medium.com/roblox-developer/developer-spotlight-meet-abracadabra-1687d0107dde" target="_blank" rel="noopener">
+        <div class="src">Roblox Developer Relations</div>
+        <div class="ttl">Developer Spotlight: Meet Abracadabra</div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CONTACT ============ -->
 <section class="contact" id="contact">
   <div class="wrap contact-grid">
     <div class="contact-side">
       <div class="sec-head">
         <h2>Get in touch</h2>
-        <p>Brand partnerships, press, or you just really love sharks — tell us what you're thinking.</p>
+        <p>Brand partnerships, press, or you just really love sharks. Tell us what you're thinking.</p>
       </div>
       <p>Prefer email? Write to <a class="mail" href="mailto:business@abracadabra.gg">business@abracadabra.gg</a>.</p>
       <div class="reply-note">We usually reply within <b>24–48 hours</b>. For anything urgent, reach us on X.</div>
@@ -590,8 +570,9 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
   <div class="wrap foot">
     <img src="logo.png" alt="Abracadabra Studio">
     <a href="#games">Games</a>
-    <a href="#press">Press</a>
+    <a href="#about">About</a>
     <a href="#partners">Partners</a>
+    <a href="#press">Press</a>
     <a href="https://www.roblox.com/groups/997074/Abracadabra" target="_blank" rel="noopener">Roblox group</a>
     <span class="copy">© 2026 Abracadabra Studio. All rights reserved. Not affiliated with Roblox Corporation.</span>
   </div>
@@ -632,17 +613,17 @@ const HIDDEN = [/outfit search/i];
 // Per-game overrides, matched by name. `flagship` puts a game in the Flagship section.
 const GAME_INFO = [
   { match:/sharkbite classic|^sharkbite$/i, flagship:true, genre:"1 vs All",
-    blurb:"The round-based survival classic. Board a boat, arm up, and outlast a player-controlled shark — or become the shark yourself." },
+    blurb:"The round-based survival classic. Grab a boat with your friends, arm up and try to outlast a player-controlled shark. Or take the shark's side and hunt everyone down yourself." },
   { match:/sharkbite 2/i, flagship:true, genre:"1 vs All",
-    blurb:"The sequel — rebuilt oceans, boat and shark skins, and sharper survival." },
+    blurb:"The sequel to SharkBite, with bigger oceans, new boats and sharks to unlock, and sharper survival rounds. Same rules, more ways to win." },
   { match:/backpacking/i, flagship:true, genre:"Adventure",
-    blurb:"An open-world camping adventure. Hike, fish, kayak, glide and pitch your tent under a living day–night sky." },
+    blurb:"A relaxed open-world camping adventure. Hike the trails, fish the lakes, kayak and glide, then pitch your tent as the day turns to night around you." },
   { match:/robowling/i, flagship:true, genre:"Social",
-    blurb:"Ten-pin bowling with friends — our first hit, and still rolling since 2015." },
+    blurb:"Ten-pin bowling with friends, and our first hit back in 2015. Roll a few frames, chat at the lanes and see who can string the strikes together." },
   { match:/tripmine/i, genre:"Party & Casual" },
   { match:/cake ?bomb/i, genre:"Party & Casual" },
 ];
-const DEFAULT_BLURB = "One of our worlds — jump in and see for yourself.";
+const DEFAULT_BLURB = "One of our worlds. Jump in and see for yourself.";
 const infoFor = (name) => GAME_INFO.find(i => i.match.test(name)) || {};
 
 const FALLBACK_GAMES = [
@@ -704,7 +685,7 @@ function gameCard(g, featured){
 
 function marqueeCard(g){
   const name = esc(cleanName(g.name));
-  const art = g.thumb ? `<img src="${g.thumb}" alt="" loading="lazy">` : `<span aria-hidden="true">${g.emoji || "✦"}</span>`;
+  const art = g.thumb ? `<img src="${g.thumb}" alt="">` : `<span aria-hidden="true">${g.emoji || "✦"}</span>`;
   return `
     <a class="mq-card" href="${gameUrl(g)}" target="_blank" rel="noopener" aria-label="${name}">
       <div class="mq-art">${art}</div>
@@ -734,9 +715,9 @@ function renderMarquee(games){
   // Duplicate the track so the loop is seamless; pad short lists so it fills the screen.
   let track = list;
   while (track.length < 8) track = track.concat(list);
-  const html = track.map(marqueeCard).join("");
+  const html = `<div class="mq-track">${track.map(marqueeCard).join("")}</div>`;
   const el = $("marquee");
-  el.innerHTML = html + html;
+  el.innerHTML = html + html;   // two identical tracks = seamless loop
   el.style.setProperty("--speed", Math.max(30, track.length * 5) + "s");
 }
 
@@ -813,7 +794,7 @@ $("contact-form").addEventListener("submit", async (e) => {
     const r = await fetch(FORM_ENDPOINT, { method:"POST", headers:{ "Content-Type":"application/json", "Accept":"application/json" }, body: JSON.stringify({ ...data, _subject: subject }) });
     if (!r.ok) throw new Error(r.status);
     form.reset();
-    status.classList.add("ok"); status.textContent = "Sent — we'll get back to you soon.";
+    status.classList.add("ok"); status.textContent = "Sent. We'll get back to you soon.";
     btn.textContent = "Sent";
   } catch(err){
     status.classList.add("err"); status.textContent = `Couldn't send. Email us directly at ${CONTACT_EMAIL}.`;
