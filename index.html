@@ -245,6 +245,28 @@ section{padding:96px 0}
 .partner .cap{padding:20px 22px;display:flex;justify-content:space-between;align-items:baseline;gap:16px}
 .partner .cap b{font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em;text-transform:uppercase}
 .partner .cap span{color:var(--mist);font-size:.9rem;text-align:right}
+.partner-grid{align-items:start}
+.partner-video .shot{aspect-ratio:auto;min-height:220px;display:block;background:var(--abyss);padding:12px}
+.partner-video .shot .twitter-tweet{margin:0 auto!important}
+.partner-video .shot iframe{border-radius:8px}
+.slider{position:relative;border:1px solid var(--line);border-radius:var(--r);background:var(--card);overflow:hidden}
+.slides{display:flex;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.slide{flex:0 0 100%;display:grid;grid-template-columns:1.25fr .75fr;min-height:360px}
+.slide-img{position:relative;background:var(--abyss);min-height:260px}
+.slide-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slide-img.light{background:#F5F7FB}
+.slide-img.light img{object-fit:contain;padding:22px}
+.slide-cap{padding:34px 32px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.slide-cap b{font-family:var(--display);font-weight:800;font-size:1.35rem;letter-spacing:-.02em;text-transform:uppercase}
+.slide-cap span{color:var(--mist);font-size:.95rem;line-height:1.55}
+.slide-cap em{font-style:normal;margin-top:12px;color:var(--tooth);font-family:var(--display);font-weight:800;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase}
+.slide:hover .slide-cap em{text-decoration:underline}
+.slide-btn{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:var(--r-sm);border:1px solid var(--line-strong);background:rgba(6,15,36,.8);color:var(--foam);cursor:pointer;font-size:.9rem;display:grid;place-items:center;transition:background .15s}
+.slide-btn:hover{background:var(--tooth);color:var(--tooth-ink);border-color:var(--tooth)}
+.slide-btn.prev{left:14px}.slide-btn.next{right:14px}
+.dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:7px}
+.dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:rgba(242,246,255,.35);cursor:pointer;transition:background .15s,transform .15s}
+.dots button[aria-selected="true"]{background:var(--tooth);transform:scale(1.25)}
 .merch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .merch-grid .partner{display:block;transition:border-color .15s}
 .merch-grid .partner:hover{border-color:var(--line-strong)}
@@ -293,6 +315,9 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
 @media (max-width:900px){
   .nav-links{display:none}
   .game-grid,.merch-grid{grid-template-columns:1fr 1fr}
+  .slide{grid-template-columns:1fr}
+  .slide-img{aspect-ratio:16/10;min-height:0}
+  .slide-cap{padding:22px 22px 44px}
   .hero-stats{gap:14px}
   .about-grid,.press-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
   .game-featured{grid-template-columns:1fr}
@@ -469,34 +494,56 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
       <p>Global names that have appeared inside our games.</p>
     </div>
     <div class="partner-grid">
-      <!-- Upload your two thumbnails to the images folder as images/adidas.jpg and images/netflix.jpg. Edit the captions below. -->
       <div class="partner">
-        <div class="shot"><span class="ph">adidas</span><img src="images/adidas.jpg" alt="adidas collaboration" onerror="this.remove()"></div>
-        <div class="cap"><b>adidas</b><span>In-game collaboration</span></div>
+        <div class="shot"><img src="images/adidas.jpg" alt="adidas collaboration in SharkBite" loading="lazy"></div>
+        <div class="cap"><b>adidas</b><span>In-game collaboration · SharkBite</span></div>
       </div>
-      <div class="partner">
-        <div class="shot"><span class="ph">Netflix</span><img src="images/netflix.jpg" alt="Netflix collaboration" onerror="this.remove()"></div>
-        <div class="cap"><b>Netflix</b><span>In-game collaboration</span></div>
+      <div class="partner partner-video">
+        <div class="shot">
+          <!-- Official Nimona trailer post from @AbracadabraRBLX; rendered by X's embed script -->
+          <blockquote class="twitter-tweet" data-theme="dark" data-conversation="none" data-dnt="true"><a href="https://x.com/AbracadabraRBLX/status/1677458448852680705">Nimona × SharkBite trailer</a></blockquote>
+        </div>
+        <div class="cap"><b>Netflix</b><span>Nimona · in-game event, 2023</span></div>
       </div>
     </div>
     <div class="sec-head" style="margin:56px 0 28px">
       <h2 style="font-size:clamp(1.5rem,3.4vw,2.1rem)">Official merchandise</h2>
-      <p>SharkBite toys made with Jazwares and Hasbro, on shelves worldwide.</p>
+      <p>SharkBite toys and blasters made with Jazwares and Hasbro, on shelves worldwide.</p>
     </div>
-    <div class="merch-grid">
-      <!-- Optional: add product photos to the images folder as merch-devseries.jpg, merch-nerf.jpg, merch-duckboat.jpg -->
-      <a class="partner" href="https://www.amazon.co.uk/DevSeries-SharkBite-2-75-Inch-Accessories-Exclusive/dp/B0C8Q5HP4Y" target="_blank" rel="noopener">
-        <div class="shot"><span class="ph">DevSeries</span><img src="images/merch-devseries.jpg" alt="DevSeries SharkBite figure" onerror="this.remove()"></div>
-        <div class="cap"><b>DevSeries figure</b><span>Jazwares · with exclusive virtual item</span></div>
-      </a>
-      <a class="partner" href="https://www.amazon.co.uk/Super-Soaker-Sharkbite-Exclusive-Multi-Coloured/dp/B09ZLCQC7Y" target="_blank" rel="noopener">
-        <div class="shot"><span class="ph">Nerf</span><img src="images/merch-nerf.jpg" alt="Nerf Super Soaker SharkBite blaster" onerror="this.remove()"></div>
-        <div class="cap"><b>Super Soaker SHRK 500</b><span>Nerf · Hasbro</span></div>
-      </a>
-      <a class="partner" href="https://www.amazon.com/clp/B07BC81C2D" target="_blank" rel="noopener">
-        <div class="shot"><span class="ph">Duck Boat</span><img src="images/merch-duckboat.jpg" alt="SharkBite Duck Boat toy" onerror="this.remove()"></div>
-        <div class="cap"><b>Duck Boat</b><span>Roblox Celebrity Collection · Jazwares</span></div>
-      </a>
+    <div class="slider" id="merch-slider">
+      <div class="slides" id="merch-slides">
+        <a class="slide" href="https://www.amazon.co.uk/DevSeries-SharkBite-2-75-Inch-Accessories-Exclusive/dp/B0C8Q5HP4Y" target="_blank" rel="noopener">
+          <div class="slide-img light"><img src="images/merch-devseries.jpg" alt="DevSeries SharkBite 2 Shark Cage figure pack" loading="lazy"></div>
+          <div class="slide-cap"><b>DevSeries · Shark Cage</b><span>Jazwares figure pack with exclusive virtual item code</span><em>View on Amazon</em></div>
+        </a>
+        <a class="slide" href="https://www.amazon.co.uk/Super-Soaker-Sharkbite-Exclusive-Multi-Coloured/dp/B09ZLCQC7Y" target="_blank" rel="noopener">
+          <div class="slide-img light"><img src="images/merch-nerf.jpg" alt="Nerf Super Soaker SharkBite SHRK 500" loading="lazy"></div>
+          <div class="slide-cap"><b>Nerf Super Soaker SHRK 500</b><span>Hasbro water blaster with exclusive virtual item</span><em>View on Amazon</em></div>
+        </a>
+        <a class="slide" href="https://shop.hasbro.com/en-us/product/nerf-roblox-sharkbite-web-launcher-rocker-blaster-includes-code-to-redeem-exclusive-virtual-item-2-nerf-rockets/F6131" target="_blank" rel="noopener">
+          <div class="slide-img"><img src="images/merch-weblauncher.jpg" alt="Nerf Roblox SharkBite Web Launcher rocket blaster" loading="lazy"></div>
+          <div class="slide-cap"><b>Nerf Web Launcher</b><span>Pump-action rocket blaster by Hasbro, with exclusive virtual item</span><em>View at Hasbro</em></div>
+        </a>
+        <a class="slide" href="https://shop.hasbro.com/en-us/product/nerf-roblox-sharkbite-web-launcher-rocker-blaster-includes-code-to-redeem-exclusive-virtual-item-2-nerf-rockets/F6131" target="_blank" rel="noopener">
+          <div class="slide-img light"><img src="images/merch-weblauncher-box.jpg" alt="Nerf SharkBite Web Launcher packaging" loading="lazy"></div>
+          <div class="slide-cap"><b>Nerf Web Launcher</b><span>Retail packaging · fires two big foam rockets</span><em>View at Hasbro</em></div>
+        </a>
+        <a class="slide" href="https://www.amazon.com/clp/B07BC81C2D" target="_blank" rel="noopener">
+          <div class="slide-img"><img src="images/merch-duckboat-beach.jpg" alt="SharkBite Duck Boat toy on the beach" loading="lazy"></div>
+          <div class="slide-cap"><b>SharkBite: Duck Boat</b><span>Roblox Celebrity Collection by Jazwares</span><em>View on Amazon</em></div>
+        </a>
+        <a class="slide" href="https://www.amazon.com/clp/B07BC81C2D" target="_blank" rel="noopener">
+          <div class="slide-img light"><img src="images/merch-duckboat.jpg" alt="SharkBite Duck Boat packaging" loading="lazy"></div>
+          <div class="slide-cap"><b>SharkBite: Duck Boat</b><span>Shark, boat, figure and blaster in the box</span><em>View on Amazon</em></div>
+        </a>
+        <a class="slide" href="https://www.amazon.co.uk/Super-Soaker-Sharkbite-Exclusive-Multi-Coloured/dp/B09ZLCQC7Y" target="_blank" rel="noopener">
+          <div class="slide-img light"><img src="images/merch-nerf-box.jpg" alt="Nerf SharkBite SHRK 500 packaging" loading="lazy"></div>
+          <div class="slide-cap"><b>Nerf Super Soaker SHRK 500</b><span>Retail packaging</span><em>View on Amazon</em></div>
+        </a>
+      </div>
+      <button class="slide-btn prev" type="button" aria-label="Previous" data-dir="-1">&#10094;</button>
+      <button class="slide-btn next" type="button" aria-label="Next" data-dir="1">&#10095;</button>
+      <div class="dots" id="merch-dots" role="tablist"></div>
     </div>
   </div>
 </section>
@@ -768,6 +815,36 @@ $("contact-form").addEventListener("submit", async (e) => {
     btn.disabled = false; btn.textContent = "Send message";
   }
 });
+
+/* ============================================================
+   Merch slider
+   ============================================================ */
+(function slider(){
+  const track = $("merch-slides"), slides = [...track.children], dots = $("merch-dots");
+  let i = 0, timer;
+  slides.forEach((_, n) => {
+    const b = document.createElement("button"); b.type = "button"; b.setAttribute("role","tab");
+    b.setAttribute("aria-label", `Slide ${n+1}`); b.addEventListener("click", () => go(n, true)); dots.appendChild(b);
+  });
+  function go(n, manual){
+    i = (n + slides.length) % slides.length;
+    track.style.transform = `translateX(-${i*100}%)`;
+    [...dots.children].forEach((d, k) => d.setAttribute("aria-selected", k === i));
+    if (manual) restart();
+  }
+  function restart(){ clearInterval(timer); timer = setInterval(() => go(i+1), 5500); }
+  document.querySelectorAll(".slide-btn").forEach(b => b.addEventListener("click", () => go(i + Number(b.dataset.dir), true)));
+  let x0 = null;
+  track.addEventListener("touchstart", e => x0 = e.touches[0].clientX, {passive:true});
+  track.addEventListener("touchend", e => { if (x0 == null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1), true); x0 = null; });
+  go(0);
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) restart();
+})();
+
+/* X (Twitter) embed for the Nimona trailer */
+(function xEmbed(){
+  const sc = document.createElement("script"); sc.async = true; sc.src = "https://platform.twitter.com/widgets.js"; document.body.appendChild(sc);
+})();
 
 /* ============================================================
    Star field
