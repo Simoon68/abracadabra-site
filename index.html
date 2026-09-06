@@ -228,6 +228,7 @@ section{padding:96px 0}
 .press-facts .btn{width:100%;margin-top:20px}
 
 /* ---------- About ---------- */
+.about-band{background:var(--abyss);border-block:1px solid var(--line)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
 .about-grid p{color:var(--mist);font-size:1.02rem;line-height:1.65;margin-bottom:18px}
 .about-grid p strong{color:var(--foam);font-weight:600}
@@ -420,7 +421,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
 </section>
 
 <!-- ============ ABOUT ============ -->
-<section id="about">
+<section class="about-band" id="about">
   <div class="wrap">
     <div class="about-grid">
       <div>
@@ -446,7 +447,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
 </section>
 
 <!-- ============ PARTNERS ============ -->
-<section class="partners" id="partners" style="border-top:1px solid var(--line)">
+<section class="partners" id="partners">
   <div class="wrap">
     <div class="sec-head">
       <h2>Brands we've worked with</h2>
@@ -516,14 +517,17 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
       <a class="press-item" href="https://www.thetimes.com/life-style/article/roblox-sharkbite-and-the-gamers-who-got-rich-as-teenagers-cck8lzhrz" target="_blank" rel="noopener">
         <div class="src">The Times</div>
         <div class="ttl">Roblox, SharkBite and the gamers who got rich as teenagers</div>
+        <div class="sum">A feature on SharkBite and the developers who built a studio before finishing school.</div>
       </a>
       <a class="press-item" href="https://www.pcgamesn.com/roblox/state-of-the-game-2026" target="_blank" rel="noopener">
         <div class="src">PCGamesN</div>
         <div class="ttl">Roblox: state of the game 2026</div>
+        <div class="sum">Simon and Matt on why variety is Roblox's biggest strength, and how parents are becoming players too.</div>
       </a>
       <a class="press-item" href="https://medium.com/roblox-developer/developer-spotlight-meet-abracadabra-1687d0107dde" target="_blank" rel="noopener">
         <div class="src">Roblox Developer Relations</div>
         <div class="ttl">Developer Spotlight: Meet Abracadabra</div>
+        <div class="sum">The origin story of Simoon68 and Opplo, and how SharkBite grew without ever running an advert.</div>
       </a>
     </div>
   </div>
@@ -613,13 +617,13 @@ const HIDDEN = [/outfit search/i];
 // Per-game overrides, matched by name. `flagship` puts a game in the Flagship section.
 const GAME_INFO = [
   { match:/sharkbite classic|^sharkbite$/i, flagship:true, genre:"1 vs All",
-    blurb:"The round-based survival classic. Grab a boat with your friends, arm up and try to outlast a player-controlled shark. Or take the shark's side and hunt everyone down yourself." },
+    blurb:"The round-based survival classic. Board a boat, arm up and outlast a player-controlled shark. Or be the shark." },
   { match:/sharkbite 2/i, flagship:true, genre:"1 vs All",
-    blurb:"The sequel to SharkBite, with bigger oceans, new boats and sharks to unlock, and sharper survival rounds. Same rules, more ways to win." },
+    blurb:"The sequel. Bigger oceans, new boats and sharks to unlock, and sharper survival rounds." },
   { match:/backpacking/i, flagship:true, genre:"Adventure",
-    blurb:"A relaxed open-world camping adventure. Hike the trails, fish the lakes, kayak and glide, then pitch your tent as the day turns to night around you." },
+    blurb:"A relaxed open-world camping adventure. Hike, fish, kayak and pitch your tent as day turns to night." },
   { match:/robowling/i, flagship:true, genre:"Social",
-    blurb:"Ten-pin bowling with friends, and our first hit back in 2015. Roll a few frames, chat at the lanes and see who can string the strikes together." },
+    blurb:"Ten-pin bowling with friends, and our first hit back in 2015." },
   { match:/tripmine/i, genre:"Party & Casual" },
   { match:/cake ?bomb/i, genre:"Party & Casual" },
 ];
