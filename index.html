@@ -256,7 +256,7 @@ section{padding:96px 0}
 .slide-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .slide-img.light{background:#F5F7FB}
 .slide-img.light img{object-fit:contain;padding:22px}
-.slide-cap{padding:34px 32px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.slide-cap{padding:34px 68px 34px 32px;display:flex;flex-direction:column;justify-content:center;gap:8px}
 .slide-cap b{font-family:var(--display);font-weight:800;font-size:1.35rem;letter-spacing:-.02em;text-transform:uppercase}
 .slide-cap span{color:var(--mist);font-size:.95rem;line-height:1.55}
 .slide-cap em{font-style:normal;margin-top:12px;color:var(--tooth);font-family:var(--display);font-weight:800;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase}
@@ -264,7 +264,7 @@ section{padding:96px 0}
 .slide-btn{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:var(--r-sm);border:1px solid var(--line-strong);background:rgba(6,15,36,.8);color:var(--foam);cursor:pointer;font-size:.9rem;display:grid;place-items:center;transition:background .15s}
 .slide-btn:hover{background:var(--tooth);color:var(--tooth-ink);border-color:var(--tooth)}
 .slide-btn.prev{left:14px}.slide-btn.next{right:14px}
-.dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:7px}
+.dots{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);display:flex;gap:7px;padding:7px 10px;border-radius:999px;background:rgba(6,15,36,.75);border:1px solid var(--line)}
 .dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:rgba(242,246,255,.35);cursor:pointer;transition:background .15s,transform .15s}
 .dots button[aria-selected="true"]{background:var(--tooth);transform:scale(1.25)}
 .merch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -317,7 +317,8 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
   .game-grid,.merch-grid{grid-template-columns:1fr 1fr}
   .slide{grid-template-columns:1fr}
   .slide-img{aspect-ratio:16/10;min-height:0}
-  .slide-cap{padding:22px 22px 44px}
+  .slide-cap{padding:22px 22px 48px}
+  .dots{bottom:10px}
   .hero-stats{gap:14px}
   .about-grid,.press-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
   .game-featured{grid-template-columns:1fr}
@@ -518,10 +519,6 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
           <div class="slide-img light"><img src="images/merch-devseries.jpg" alt="DevSeries SharkBite 2 Shark Cage figure pack" loading="lazy"></div>
           <div class="slide-cap"><b>DevSeries · Shark Cage</b><span>Jazwares figure pack with exclusive virtual item code</span><em>View on Amazon</em></div>
         </a>
-        <a class="slide" href="https://www.amazon.co.uk/Super-Soaker-Sharkbite-Exclusive-Multi-Coloured/dp/B09ZLCQC7Y" target="_blank" rel="noopener">
-          <div class="slide-img light"><img src="images/merch-nerf.jpg" alt="Nerf Super Soaker SharkBite SHRK 500" loading="lazy"></div>
-          <div class="slide-cap"><b>Nerf Super Soaker SHRK 500</b><span>Hasbro water blaster with exclusive virtual item</span><em>View on Amazon</em></div>
-        </a>
         <a class="slide" href="https://shop.hasbro.com/en-us/product/nerf-roblox-sharkbite-web-launcher-rocker-blaster-includes-code-to-redeem-exclusive-virtual-item-2-nerf-rockets/F6131" target="_blank" rel="noopener">
           <div class="slide-img"><img src="images/merch-weblauncher.jpg" alt="Nerf Roblox SharkBite Web Launcher rocket blaster" loading="lazy"></div>
           <div class="slide-cap"><b>Nerf Web Launcher</b><span>Pump-action rocket blaster by Hasbro, with exclusive virtual item</span><em>View at Hasbro</em></div>
@@ -540,7 +537,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
         </a>
         <a class="slide" href="https://www.amazon.co.uk/Super-Soaker-Sharkbite-Exclusive-Multi-Coloured/dp/B09ZLCQC7Y" target="_blank" rel="noopener">
           <div class="slide-img light"><img src="images/merch-nerf-box.jpg" alt="Nerf SharkBite SHRK 500 packaging" loading="lazy"></div>
-          <div class="slide-cap"><b>Nerf Super Soaker SHRK 500</b><span>Retail packaging</span><em>View on Amazon</em></div>
+          <div class="slide-cap"><b>Nerf Super Soaker SHRK 500</b><span>Hasbro water blaster with exclusive virtual item</span><em>View on Amazon</em></div>
         </a>
       </div>
       <button class="slide-btn prev" type="button" aria-label="Previous" data-dir="-1">&#10094;</button>
