@@ -428,7 +428,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
         <div class="sec-head" style="margin-bottom:24px">
           <h2>Our story</h2>
         </div>
-        <p><strong>Abracadabra Studio</strong> is the work of Simoon68 and Opplo, who met on Roblox in 2010 when they were both twelve. It was the clans and guilds era, their clans became allies, and running them is where they learned to build, script and manage a team. In 2014 they published their first game together, <strong>Wings</strong>, and in 2015 came their first hit, <strong>RoBowling</strong>. The Abracadabra group formed in 2017 with the release of SharkBite.</p>
+        <p><strong>Abracadabra Studio</strong> was formed by two Roblox developers with a real love for the platform. Simoon68 and Opplo met on Roblox in 2010, both aged twelve, back in the clans and guilds era. Their clans became allies, and running them is where they learned to build, script and lead a team. In 2014 they published their first game together, <strong>Wings</strong>, and in 2015 came their first hit, <strong>RoBowling</strong>. The Abracadabra group formed in 2017 with the release of SharkBite, and the two of them have been making games together ever since.</p>
         <p><strong>SharkBite</strong> grew into one of Roblox's most-played survival games without a single advert, and swam off the platform entirely: official SharkBite toys, including a Nerf blaster, have shipped to shelves at Walmart, Target, ASDA and Tesco.</p>
       </div>
       <div class="timeline">
@@ -519,10 +519,25 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
         <div class="ttl">Roblox, SharkBite and the gamers who got rich as teenagers</div>
         <div class="sum">A feature on SharkBite and the developers who built a studio before finishing school.</div>
       </a>
+      <a class="press-item" href="https://www.gq-magazine.co.uk/culture/article/roblox" target="_blank" rel="noopener">
+        <div class="src">British GQ</div>
+        <div class="ttl">Inside Roblox</div>
+        <div class="sum">GQ's look at the Roblox phenomenon and the creators building careers on it, Abracadabra among them.</div>
+      </a>
+      <a class="press-item" href="https://about.roblox.com/newsroom/2025/09/roblox-annual-economic-impact-report" target="_blank" rel="noopener">
+        <div class="src">Roblox Newsroom</div>
+        <div class="ttl">Annual Roblox Economic Impact Report</div>
+        <div class="sum">Roblox's 2025 report names SharkBite one of the platform's biggest franchises and quotes Simon on how free tools made the studio possible.</div>
+      </a>
       <a class="press-item" href="https://www.pcgamesn.com/roblox/state-of-the-game-2026" target="_blank" rel="noopener">
         <div class="src">PCGamesN</div>
         <div class="ttl">Roblox: state of the game 2026</div>
         <div class="sum">Simon and Matt on why variety is Roblox's biggest strength, and how parents are becoming players too.</div>
+      </a>
+      <a class="press-item" href="https://podcasts.apple.com/gb/podcast/episode-1-sharkbite/id1474021750?i=1000445171229" target="_blank" rel="noopener">
+        <div class="src">Player to Creator podcast</div>
+        <div class="ttl">Episode 1: SharkBite</div>
+        <div class="sum">Opplo and Simoon68 on the game blowing up while they were on holiday, losing millions of Robux to a small error, and running a studio for years without meeting in person.</div>
       </a>
       <a class="press-item" href="https://medium.com/roblox-developer/developer-spotlight-meet-abracadabra-1687d0107dde" target="_blank" rel="noopener">
         <div class="src">Roblox Developer Relations</div>
@@ -616,13 +631,13 @@ const HIDDEN = [/outfit search/i];
 
 // Per-game overrides, matched by name. `flagship` puts a game in the Flagship section.
 const GAME_INFO = [
-  { match:/sharkbite classic|^sharkbite$/i, flagship:true, genre:"1 vs All",
+  { match:/sharkbite classic|^sharkbite$/i, flagship:true, order:2, genre:"1 vs All",
     blurb:"The round-based survival classic. Board a boat, arm up and outlast a player-controlled shark. Or be the shark." },
-  { match:/sharkbite 2/i, flagship:true, genre:"1 vs All",
+  { match:/sharkbite 2/i, flagship:true, order:1, genre:"1 vs All",
     blurb:"The sequel. Bigger oceans, new boats and sharks to unlock, and sharper survival rounds." },
-  { match:/backpacking/i, flagship:true, genre:"Adventure",
+  { match:/backpacking/i, flagship:true, order:3, genre:"Adventure",
     blurb:"A relaxed open-world camping adventure. Hike, fish, kayak and pitch your tent as day turns to night." },
-  { match:/robowling/i, flagship:true, genre:"Social",
+  { match:/robowling/i, flagship:true, order:4, genre:"Social",
     blurb:"Ten-pin bowling with friends, and our first hit back in 2015." },
   { match:/tripmine/i, genre:"Party & Casual" },
   { match:/cake ?bomb/i, genre:"Party & Casual" },
@@ -705,7 +720,7 @@ function marqueeCard(g){
 }
 
 function renderTop(games){
-  const top = games.filter(g => infoFor(g.name).flagship).sort((a,b) => (b.visits||0) - (a.visits||0));
+  const top = games.filter(g => infoFor(g.name).flagship).sort((a,b) => (infoFor(a.name).order||99) - (infoFor(b.name).order||99));
   const [first, ...rest] = top;
   if (first) $("game-featured-slot").innerHTML = gameCard(first, true);
   $("game-grid").innerHTML = rest.slice(0, 3).map(g => gameCard(g, false)).join("");
