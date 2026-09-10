@@ -248,7 +248,7 @@ section{padding:96px 0}
 .partner .shot .ph{font-family:var(--display);font-weight:900;font-size:2rem;letter-spacing:-.03em;color:rgba(242,246,255,.35);text-transform:uppercase}
 .partner .cap{padding:20px 22px;display:flex;justify-content:space-between;align-items:baseline;gap:16px}
 .partner .cap b{font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:-.02em;text-transform:uppercase}
-.partner .cap span{color:var(--mist);font-size:.9rem;text-align:right}
+.partner .cap span{color:var(--mist);font-size:.9rem;text-align:right;max-width:34ch;line-height:1.45}
 .partner-video .shot iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:1}
 .partner-video .shot video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;background:var(--abyss)}
 .partner-video .shot .ph{position:relative;z-index:0}
@@ -287,6 +287,12 @@ section{padding:96px 0}
 .contact-grid .sec-head{margin-bottom:28px}
 .contact-side p{color:var(--mist);font-size:1rem;margin-bottom:14px}
 .contact-side a.mail{color:var(--foam);font-weight:600;border-bottom:1px solid var(--tooth)}
+.support{margin-top:30px;padding:24px;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+.support b{display:block;font-family:var(--display);font-weight:800;font-size:1.1rem;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:6px}
+.support p{margin-bottom:16px;font-size:.95rem}
+.btn-discord{width:100%;background:#5865F2;color:#fff;gap:10px}
+.btn-discord:hover{filter:brightness(1.08)}
+.btn-discord svg{width:20px;height:20px;fill:currentColor}
 .reply-note{margin-top:26px;padding:16px 18px;border:1px solid var(--line);border-left:3px solid var(--tooth);border-radius:var(--r-sm);background:var(--card);font-size:.92rem;color:var(--mist)}
 .reply-note b{color:var(--foam);font-weight:600}
 form{border:1px solid var(--line);border-radius:var(--r);padding:30px;background:var(--card)}
@@ -414,7 +420,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
   <div class="wrap">
     <div class="sec-head">
       <h2>Flagship games</h2>
-      <p>Original titles built in-house. Player counts and visits update straight from Roblox.</p>
+      <p>Original titles built in-house.</p>
     </div>
     <div id="game-featured-slot"></div>
     <div class="game-grid" id="game-grid"></div>
@@ -429,8 +435,9 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
         <div class="sec-head" style="margin-bottom:24px">
           <h2>Our story</h2>
         </div>
-        <p><strong>Abracadabra Studio</strong> was formed by two Roblox developers with a real love for the platform. Simoon68 and Opplo met on Roblox in 2010, both aged twelve, back in the clans and guilds era. Their clans became allies, and running them is where they learned to build, script and lead a team. In 2014 they published their first game together, <strong>Wings</strong>, and in 2015 came their first hit, <strong>RoBowling</strong>. The Abracadabra group formed in 2017 with the release of SharkBite, and the two of them have been making games together ever since.</p>
-        <p><strong>SharkBite</strong> grew into one of Roblox's most-played survival games without a single advert, and swam off the platform entirely: official SharkBite toys, including a Nerf blaster, have shipped to shelves at Walmart, Target, ASDA and Tesco.</p>
+        <p><strong>Abracadabra Studio</strong> started the way a lot of good things on Roblox do: two kids who loved the game far more than was sensible. Simoon68 and Opplo met on Roblox in 2010, aged twelve, in the days of clans and guilds. Their clans became allies, and building bases, scripting weapons and keeping a team of players organised turned out to be a better education in game development than any course. In 2014 they published their first game together, <strong>Wings</strong>. A year later came <strong>RoBowling</strong>, their first real hit, and the moment it felt like this could be more than a hobby.</p>
+        <p>The Abracadabra group followed in 2017 with the release of <strong>SharkBite</strong>. It blew up while the two of them were on holiday, and it has never run a single advert since. Everything it has grown into, the sequel, the toys on shelves at Walmart, Target, ASDA and Tesco, the Nerf blasters, the brand collaborations, came from players telling their friends. The pair ran the studio for years before they ever met in person.</p>
+        <p>Sixteen years on, it is still the two of them making the games they would want to play, in-house and on their own terms.</p>
       </div>
     </div>
 
@@ -447,7 +454,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
     <div class="partner-grid">
       <div class="partner">
         <div class="shot"><img src="images/adidas.jpg" alt="adidas collaboration in SharkBite" loading="lazy"></div>
-        <div class="cap"><b>adidas</b><span>In-game collaboration · SharkBite</span></div>
+        <div class="cap"><b>adidas</b><span>SharkBite 2 collaboration. UGC adidas x SharkBite flippers, wearable in-game.</span></div>
       </div>
       <div class="partner partner-video">
         <div class="shot">
@@ -457,7 +464,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
           <button class="unmute" type="button" aria-label="Toggle sound" hidden>&#128264;</button>
           <span class="ph">Netflix</span>
         </div>
-        <div class="cap"><b>Netflix</b><span>Nimona · SharkBite 2 event, 2023</span></div>
+        <div class="cap"><b>Netflix</b><span>Nimona event in SharkBite 2, 2023. Fully integrated sponsorship with Nimona characters and assets.</span></div>
       </div>
     </div>
     <div class="sec-head" style="margin:56px 0 28px">
@@ -523,7 +530,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
       <a class="press-item" href="https://www.pcgamesn.com/roblox/state-of-the-game-2026" target="_blank" rel="noopener">
         <div class="src">PCGamesN</div>
         <div class="ttl">Roblox: state of the game 2026</div>
-        <div class="sum">Simon and Matt on why variety is Roblox's biggest strength, and how parents are becoming players too.</div>
+        <div class="sum">Simon and Max on why variety is Roblox's biggest strength, and how parents are becoming players too.</div>
       </a>
       <a class="press-item" href="https://podcasts.apple.com/gb/podcast/episode-1-sharkbite/id1474021750?i=1000445171229" target="_blank" rel="noopener">
         <div class="src">Player to Creator podcast</div>
@@ -548,7 +555,14 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
         <p>Brand partnerships, press, or you just really love sharks. Tell us what you're thinking.</p>
       </div>
       <p>Prefer email? Write to <a class="mail" href="mailto:business@abracadabra.gg">business@abracadabra.gg</a>.</p>
-      <div class="reply-note">We usually reply within <b>24–48 hours</b>. For anything urgent, reach us on X.</div>
+      <div class="support">
+        <b>Need support or found a bug?</b>
+        <p>Our Discord is the fastest way to reach the team and the community.</p>
+        <a class="btn btn-discord" href="https://discord.gg/abracadabra" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.2a18 18 0 0 0-5.5 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9 -.2 13.4.2 17.8a19.9 19.9 0 0 0 6 3l1.3-2.1c-.7-.3-1.4-.6-2-1l.5-.4a14.2 14.2 0 0 0 12.1 0l.5.4c-.7.4-1.4.7-2.1 1l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.1-.8-9.5-3.5-13.4zM8 15.3c-1.2 0-2.1-1-2.1-2.3S6.8 10.7 8 10.7s2.2 1 2.1 2.3c0 1.2-.9 2.3-2.1 2.3zm8 0c-1.2 0-2.1-1-2.1-2.3s.9-2.3 2.1-2.3 2.2 1 2.1 2.3c0 1.2-.9 2.3-2.1 2.3z"/></svg>
+          Join our Discord
+        </a>
+      </div>
     </div>
     <form id="contact-form" novalidate>
       <div class="f-row">
@@ -561,7 +575,6 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
         <div class="chips">
           <label><input type="radio" name="topic" value="Brand activation" checked><span>Brand activation</span></label>
           <label><input type="radio" name="topic" value="Press / media"><span>Press / media</span></label>
-          <label><input type="radio" name="topic" value="Custom game"><span>Custom game</span></label>
           <label><input type="radio" name="topic" value="Sponsorship"><span>Sponsorship</span></label>
           <label><input type="radio" name="topic" value="Other"><span>Other</span></label>
         </div>
@@ -623,13 +636,13 @@ const HIDDEN = [/outfit search/i];
 // Per-game overrides, matched by name. `flagship` puts a game in the Flagship section.
 const GAME_INFO = [
   { match:/sharkbite classic|^sharkbite$/i, flagship:true, order:2, genre:"1 vs All", art:"images/sharkbite-classic-keyart.jpg", icon:"images/sharkbite-classic-icon.jpg",
-    blurb:"The round-based survival classic. Board a boat, arm up and outlast a player-controlled shark. Or be the shark." },
+    blurb:"Our flagship franchise. Board a boat, arm up and outlast the shark, who is another player hunting you down. Or take the shark's side yourself." },
   { match:/sharkbite 2/i, flagship:true, order:1, genre:"1 vs All", art:"images/sharkbite2-keyart.jpg", icon:"images/sharkbite2-icon.jpg",
-    blurb:"The sequel. Bigger oceans, new boats and sharks to unlock, and sharper survival rounds." },
+    blurb:"The flagship sequel. Build your own boat, free roam bigger oceans, take on new maps and new sharks, all with a full fidelity upgrade." },
   { match:/backpacking/i, flagship:true, order:3, genre:"Adventure", art:"images/backpacking-campfire.jpg", icon:"images/backpacking-icon.jpg",
     blurb:"A relaxed open-world camping adventure. Hike, fish, kayak and pitch your tent as day turns to night." },
   { match:/robowling/i, flagship:true, order:4, genre:"Social", art:"images/robowling-keyart.jpg",
-    blurb:"Ten-pin bowling with friends, and our first hit back in 2015." },
+    blurb:"Ten-pin bowling with friends, and our first hit back in 2015. Still the most visited bowling game on Roblox." },
   { match:/tripmine/i, genre:"Party & Casual" },
   { match:/cake ?bomb/i, genre:"Party & Casual" },
 ];
