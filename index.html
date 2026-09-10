@@ -169,7 +169,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,22,49,.86);backdrop-f
 .mq-card{width:232px;flex:none;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card);transition:border-color .15s}
 .mq-card:hover{border-color:var(--line-strong)}
 .mq-art{aspect-ratio:16/9;background:linear-gradient(135deg,#132B60,#0A1A40);position:relative;display:grid;place-items:center;font-size:2rem}
-.mq-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mq-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
 .mq-body{padding:12px 14px 14px}
 .mq-genre{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tooth)}
 .mq-name{font-family:var(--display);font-weight:800;font-size:.95rem;letter-spacing:-.01em;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -186,12 +186,12 @@ section{padding:96px 0}
 
 /* ---------- Games ---------- */
 .game-featured{display:grid;grid-template-columns:1.15fr 1fr;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card)}
-.game-featured .art{aspect-ratio:16/10;min-height:100%}
+.game-featured .art{aspect-ratio:16/9;min-height:100%}
 .art{background:linear-gradient(135deg,#132B60,#0A1A40);display:grid;place-items:center;position:relative}
-.art img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.art img{width:100%;height:100%;object-fit:cover;object-position:center top;position:absolute;inset:0}
 .art .ph{font-size:4rem;opacity:.9}
 .ph-hat{position:absolute!important;inset:auto!important;left:50%!important;top:50%!important;width:34%!important;height:auto!important;transform:translate(-50%,-50%);opacity:.35;object-fit:contain!important}
-.game-featured .info{padding:44px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.game-featured .info{padding:32px 40px;display:flex;flex-direction:column;justify-content:center;gap:14px}
 .game-title{font-family:var(--display);font-weight:800;font-size:2rem;letter-spacing:-.03em;text-transform:uppercase}
 .game-blurb{color:var(--mist);font-size:1rem;max-width:46ch;line-height:1.6}
 .game-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:6px}
@@ -202,7 +202,7 @@ section{padding:96px 0}
 .game-grid{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .game-card{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card);display:flex;flex-direction:column;transition:border-color .18s}
 .game-card:hover{border-color:var(--line-strong)}
-.game-card .art{aspect-ratio:16/10}
+.game-card .art{aspect-ratio:16/9}
 .game-card .info{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1}
 .game-card .game-title{font-size:1.25rem}
 .game-card .game-blurb{font-size:.92rem}
@@ -436,8 +436,8 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
           <h2>Our story</h2>
         </div>
         <p><strong>Abracadabra Studio</strong> began with two twelve-year-olds who loved Roblox. Simoon68 and Opplo met on the platform in 2010, in the era of clans and guilds, and quickly became allies. Building bases, scripting weapons and organising players taught them more about making games than any classroom could, and it never felt like work. It felt like play.</p>
-        <p>That is still the spirit of the studio. Their first game together, <strong>Wings</strong>, arrived in 2014, followed by <strong>RoBowling</strong> in 2015, the first one to really take off. In 2017 they formed Abracadabra and released <strong>SharkBite</strong>, which grew into one of the most played survival games on Roblox without a single advert. Along the way they took part in the Roblox Accelerator program, working from Roblox HQ, and watched SharkBite leap off the screen into official toys on shelves around the world.</p>
-        <p>Today Abracadabra is a team of magical developers who make games because they love playing them. Every world we ship is built in-house, for the players who turn up every day, and we are only getting started.</p>
+        <p>That is still the spirit of the studio. Their first game together, <strong>Wings</strong>, arrived in 2014, and a year later <strong>RoBowling</strong> gave them their first hit. In 2017 they formed Abracadabra and released <strong>SharkBite</strong>, which has now been played over 1.7 billion times and grew into one of the biggest franchises on Roblox. Its yellow duck boat became the face of the game, then a toy on shelves around the world, alongside the Nerf blasters and figures that followed. A place in the Roblox Accelerator program took them to Roblox HQ, where <strong>Backpacking</strong> was built.</p>
+        <p>Today Abracadabra is a team of magical developers, a community of more than a million members, and over 2.5 billion visits across our games. We make games because we love playing them, every world is built in-house, and we are only getting started.</p>
       </div>
     </div>
 
@@ -454,7 +454,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
     <div class="partner-grid">
       <div class="partner">
         <div class="shot"><img src="images/adidas.jpg" alt="adidas collaboration in SharkBite" loading="lazy"></div>
-        <div class="cap"><b>adidas</b><span>SharkBite 2 collaboration. UGC adidas x SharkBite flippers, wearable in-game.</span></div>
+        <div class="cap"><b>adidas</b><span>Official adidas x SharkBite flippers, released as UGC in SharkBite 2 for players to wear in-game and beyond.</span></div>
       </div>
       <div class="partner partner-video">
         <div class="shot">
@@ -464,7 +464,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
           <button class="unmute" type="button" aria-label="Toggle sound" hidden>&#128264;</button>
           <span class="ph">Netflix</span>
         </div>
-        <div class="cap"><b>Netflix</b><span>Nimona event in SharkBite 2, 2023. Fully integrated sponsorship with Nimona characters and assets.</span></div>
+        <div class="cap"><b>Netflix</b><span>A fully integrated Nimona event in SharkBite 2 for the film's 2023 release, with Nimona characters and items built into the game.</span></div>
       </div>
     </div>
     <div class="sec-head" style="margin:56px 0 28px">
