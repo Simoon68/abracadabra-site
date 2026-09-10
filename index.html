@@ -411,7 +411,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
 
 <!-- ============ MARQUEE ============ -->
 <div class="marquee-band" aria-label="All Abracadabra experiences">
-  <p class="marquee-title">Every world we've ever shipped</p>
+  <p class="marquee-title">Our experiences</p>
   <div class="marquee" id="marquee"></div>
 </div>
 
@@ -435,9 +435,9 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
         <div class="sec-head" style="margin-bottom:24px">
           <h2>Our story</h2>
         </div>
-        <p><strong>Abracadabra Studio</strong> started the way a lot of good things on Roblox do: two kids who loved the game far more than was sensible. Simoon68 and Opplo met on Roblox in 2010, aged twelve, in the days of clans and guilds. Their clans became allies, and building bases, scripting weapons and keeping a team of players organised turned out to be a better education in game development than any course. In 2014 they published their first game together, <strong>Wings</strong>. A year later came <strong>RoBowling</strong>, their first real hit, and the moment it felt like this could be more than a hobby.</p>
-        <p>The Abracadabra group followed in 2017 with the release of <strong>SharkBite</strong>. It blew up while the two of them were on holiday, and it has never run a single advert since. Everything it has grown into, the sequel, the toys on shelves at Walmart, Target, ASDA and Tesco, the Nerf blasters, the brand collaborations, came from players telling their friends. The pair ran the studio for years before they ever met in person.</p>
-        <p>Sixteen years on, it is still the two of them making the games they would want to play, in-house and on their own terms.</p>
+        <p><strong>Abracadabra Studio</strong> began with two twelve-year-olds who loved Roblox. Simoon68 and Opplo met on the platform in 2010, in the era of clans and guilds, and quickly became allies. Building bases, scripting weapons and organising players taught them more about making games than any classroom could, and it never felt like work. It felt like play.</p>
+        <p>That is still the spirit of the studio. Their first game together, <strong>Wings</strong>, arrived in 2014, followed by <strong>RoBowling</strong> in 2015, the first one to really take off. In 2017 they formed Abracadabra and released <strong>SharkBite</strong>, which grew into one of the most played survival games on Roblox without a single advert. Along the way they took part in the Roblox Accelerator program, working from Roblox HQ, and watched SharkBite leap off the screen into official toys on shelves around the world.</p>
+        <p>Today Abracadabra is a team of magical developers who make games because they love playing them. Every world we ship is built in-house, for the players who turn up every day, and we are only getting started.</p>
       </div>
     </div>
 
@@ -556,8 +556,8 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
       </div>
       <p>Prefer email? Write to <a class="mail" href="mailto:business@abracadabra.gg">business@abracadabra.gg</a>.</p>
       <div class="support">
-        <b>Need support or found a bug?</b>
-        <p>Our Discord is the fastest way to reach the team and the community.</p>
+        <b>Need support?</b>
+        <p>Bug reports, moderation issues, feedback, or just a question about one of our games. Our Discord is the fastest way to reach the team and the community.</p>
         <a class="btn btn-discord" href="https://discord.gg/abracadabra" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.2a18 18 0 0 0-5.5 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9 -.2 13.4.2 17.8a19.9 19.9 0 0 0 6 3l1.3-2.1c-.7-.3-1.4-.6-2-1l.5-.4a14.2 14.2 0 0 0 12.1 0l.5.4c-.7.4-1.4.7-2.1 1l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.1-.8-9.5-3.5-13.4zM8 15.3c-1.2 0-2.1-1-2.1-2.3S6.8 10.7 8 10.7s2.2 1 2.1 2.3c0 1.2-.9 2.3-2.1 2.3zm8 0c-1.2 0-2.1-1-2.1-2.3s.9-2.3 2.1-2.3 2.2 1 2.1 2.3c0 1.2-.9 2.3-2.1 2.3z"/></svg>
           Join our Discord
@@ -636,13 +636,13 @@ const HIDDEN = [/outfit search/i];
 // Per-game overrides, matched by name. `flagship` puts a game in the Flagship section.
 const GAME_INFO = [
   { match:/sharkbite classic|^sharkbite$/i, flagship:true, order:2, genre:"1 vs All", art:"images/sharkbite-classic-keyart.jpg", icon:"images/sharkbite-classic-icon.jpg",
-    blurb:"Our flagship franchise. Board a boat, arm up and outlast the shark, who is another player hunting you down. Or take the shark's side yourself." },
+    blurb:"In SharkBite either become the shark or join your friends in a battle of survival against the boat-eating shark." },
   { match:/sharkbite 2/i, flagship:true, order:1, genre:"1 vs All", art:"images/sharkbite2-keyart.jpg", icon:"images/sharkbite2-icon.jpg",
-    blurb:"The flagship sequel. Build your own boat, free roam bigger oceans, take on new maps and new sharks, all with a full fidelity upgrade." },
+    blurb:"In SharkBite 2 become a boat-eating apex predator or join your friends in a battle of survival. Bigger oceans. Bigger sharks. Build your own boat and more." },
   { match:/backpacking/i, flagship:true, order:3, genre:"Adventure", art:"images/backpacking-campfire.jpg", icon:"images/backpacking-icon.jpg",
     blurb:"A relaxed open-world camping adventure. Hike, fish, kayak and pitch your tent as day turns to night." },
   { match:/robowling/i, flagship:true, order:4, genre:"Social", art:"images/robowling-keyart.jpg",
-    blurb:"Ten-pin bowling with friends, and our first hit back in 2015. Still the most visited bowling game on Roblox." },
+    blurb:"Ten-pin bowling with friends, and our first hit back in 2015. The most visited bowling game on Roblox." },
   { match:/tripmine/i, genre:"Party & Casual" },
   { match:/cake ?bomb/i, genre:"Party & Casual" },
 ];
