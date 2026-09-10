@@ -190,6 +190,7 @@ section{padding:96px 0}
 .art{background:linear-gradient(135deg,#132B60,#0A1A40);display:grid;place-items:center;position:relative}
 .art img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .art .ph{font-size:4rem;opacity:.9}
+.ph-hat{position:absolute!important;inset:auto!important;left:50%!important;top:50%!important;width:34%!important;height:auto!important;transform:translate(-50%,-50%);opacity:.35;object-fit:contain!important}
 .game-featured .info{padding:44px;display:flex;flex-direction:column;justify-content:center;gap:14px}
 .game-title{font-family:var(--display);font-weight:800;font-size:2rem;letter-spacing:-.03em;text-transform:uppercase}
 .game-blurb{color:var(--mist);font-size:1rem;max-width:46ch;line-height:1.6}
@@ -229,8 +230,8 @@ section{padding:96px 0}
 
 /* ---------- About ---------- */
 .about-band{background:var(--abyss);border-block:1px solid var(--line)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
-.about-grid p{color:var(--mist);font-size:1.02rem;line-height:1.65;margin-bottom:18px}
+.about-grid{max-width:72ch}
+.about-grid p{color:var(--mist);font-size:1.08rem;line-height:1.7;margin-bottom:20px}
 .about-grid p strong{color:var(--foam);font-weight:600}
 .timeline{border-left:1px solid var(--line-strong);padding-left:28px;display:flex;flex-direction:column;gap:24px;margin-top:6px}
 .tl-item{position:relative}
@@ -324,7 +325,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
   .slide-cap{padding:22px 22px 48px}
   .dots{bottom:10px}
   .hero-stats{gap:14px}
-  .about-grid,.press-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+  .press-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
   .press-row{grid-template-columns:1fr}
   .game-featured{grid-template-columns:1fr}
   .game-featured .art{aspect-ratio:16/9;min-height:auto}
@@ -430,16 +431,6 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
         </div>
         <p><strong>Abracadabra Studio</strong> was formed by two Roblox developers with a real love for the platform. Simoon68 and Opplo met on Roblox in 2010, both aged twelve, back in the clans and guilds era. Their clans became allies, and running them is where they learned to build, script and lead a team. In 2014 they published their first game together, <strong>Wings</strong>, and in 2015 came their first hit, <strong>RoBowling</strong>. The Abracadabra group formed in 2017 with the release of SharkBite, and the two of them have been making games together ever since.</p>
         <p><strong>SharkBite</strong> grew into one of Roblox's most-played survival games without a single advert, and swam off the platform entirely: official SharkBite toys, including a Nerf blaster, have shipped to shelves at Walmart, Target, ASDA and Tesco.</p>
-      </div>
-      <div class="timeline">
-        <div class="tl-item"><div class="year">2010</div><div class="what">Simoon68 and Opplo meet on Roblox, aged twelve, as allied clan leaders</div></div>
-        <div class="tl-item"><div class="year">2014</div><div class="what">Wings, the first game they publish together</div></div>
-        <div class="tl-item"><div class="year">2015</div><div class="what">RoBowling launches and becomes their first hit</div></div>
-        <div class="tl-item"><div class="year">2017</div><div class="what">Abracadabra founded; SharkBite releases and finds its fins</div></div>
-        <div class="tl-item"><div class="year">2018</div><div class="what">Backpacking launches, our open-world camping adventure</div></div>
-        <div class="tl-item"><div class="year">2020</div><div class="what">SharkBite passes half a billion plays; official toys hit shelves worldwide</div></div>
-        <div class="tl-item"><div class="year">2022</div><div class="what">SharkBite 2 launches with rebuilt oceans and new sharks</div></div>
-        <div class="tl-item"><div class="year">Today</div><div class="what">Over 2.4 billion combined visits, and still building</div></div>
       </div>
     </div>
 
@@ -631,11 +622,11 @@ const HIDDEN = [/outfit search/i];
 
 // Per-game overrides, matched by name. `flagship` puts a game in the Flagship section.
 const GAME_INFO = [
-  { match:/sharkbite classic|^sharkbite$/i, flagship:true, order:2, genre:"1 vs All",
+  { match:/sharkbite classic|^sharkbite$/i, flagship:true, order:2, genre:"1 vs All", art:"images/sharkbite-classic-keyart.jpg", icon:"images/sharkbite-classic-icon.jpg",
     blurb:"The round-based survival classic. Board a boat, arm up and outlast a player-controlled shark. Or be the shark." },
-  { match:/sharkbite 2/i, flagship:true, order:1, genre:"1 vs All",
+  { match:/sharkbite 2/i, flagship:true, order:1, genre:"1 vs All", art:"images/sharkbite2-keyart.jpg", icon:"images/sharkbite2-icon.jpg",
     blurb:"The sequel. Bigger oceans, new boats and sharks to unlock, and sharper survival rounds." },
-  { match:/backpacking/i, flagship:true, order:3, genre:"Adventure",
+  { match:/backpacking/i, flagship:true, order:3, genre:"Adventure", art:"images/backpacking-campfire.jpg", icon:"images/backpacking-icon.jpg",
     blurb:"A relaxed open-world camping adventure. Hike, fish, kayak and pitch your tent as day turns to night." },
   { match:/robowling/i, flagship:true, order:4, genre:"Social",
     blurb:"Ten-pin bowling with friends, and our first hit back in 2015." },
@@ -646,12 +637,12 @@ const DEFAULT_BLURB = "One of our worlds. Jump in and see for yourself.";
 const infoFor = (name) => GAME_INFO.find(i => i.match.test(name)) || {};
 
 const FALLBACK_GAMES = [
-  { name:"SharkBite Classic", placeId:734159876,  playing:null, visits:1700000000, emoji:"🦈" },
-  { name:"SharkBite 2",       placeId:null,       playing:null, visits:494000000,  emoji:"🌊" },
-  { name:"Backpacking",       placeId:null,       playing:null, visits:337000000,  emoji:"⛺" },
-  { name:"RoBowling",         placeId:340227283,  playing:null, visits:30000000,   emoji:"🎳" },
-  { name:"Tripmine Trouble",  placeId:null,       playing:null, visits:1900000,    emoji:"💣" },
-  { name:"Cake Bomb",         placeId:null,       playing:null, visits:500000,     emoji:"🎂" },
+  { name:"SharkBite 2",       placeId:null,       playing:null, visits:495000000 },
+  { name:"SharkBite Classic", placeId:734159876,  playing:null, visits:1700000000 },
+  { name:"Backpacking",       placeId:null,       playing:null, visits:338000000 },
+  { name:"RoBowling",         placeId:340227283,  playing:null, visits:30600000 },
+  { name:"Tripmine Trouble",  placeId:null,       playing:null, visits:1900000 },
+  { name:"Cake Bomb",         placeId:null,       playing:null, visits:500000 },
 ];
 
 /* ============================================================
@@ -685,10 +676,18 @@ async function fetchJSON(url, ms=8000){
 const ICON_PEOPLE = '<svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0 4 4 0 0 0 8 0zm-4 6c-4.4 0-8 2-8 4.5V23h16v-1.5C20 19 16.4 17 12 17z"/></svg>';
 const ICON_EYE = '<svg viewBox="0 0 24 24"><path d="M12 5C6 5 2 12 2 12s4 7 10 7 10-7 10-7-4-7-10-7zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>';
 
+function artHTML(g, name, lazy){
+  const local = infoFor(g.name).art || "";
+  const src = g.thumb || g.icon || local;
+  if (!src) return `<img class="ph-hat" src="hat.png" alt="" aria-hidden="true">`;
+  // if the Roblox image fails, fall back to our own art; if that fails, show the hat
+  const fb = local && src !== local ? `this.onerror=null;this.src='${local}'` : `this.onerror=null;this.src='hat.png';this.className='ph-hat'`;
+  return `<img src="${src}" alt="${name}" ${lazy ? 'loading="lazy"' : ''} onerror="${fb}">`;
+}
+
 function gameCard(g, featured){
   const url = gameUrl(g), name = esc(cleanName(g.name));
-  const img = g.thumb || g.icon;
-  const art = img ? `<img src="${img}" alt="${name}" loading="lazy">` : `<span class="ph" aria-hidden="true">${g.emoji || "✦"}</span>`;
+  const art = artHTML(g, name, true);
   const playing = g.playing != null ? `<div class="meta-item"><div class="num online">${g.playing.toLocaleString()}</div><div class="lbl">playing now</div></div>` : "";
   return `
     <div class="${featured ? "game-featured" : "game-card"}">
@@ -704,7 +703,7 @@ function gameCard(g, featured){
 
 function marqueeCard(g){
   const name = esc(cleanName(g.name));
-  const art = g.thumb ? `<img src="${g.thumb}" alt="">` : `<span aria-hidden="true">${g.emoji || "✦"}</span>`;
+  const art = artHTML(g, "", false);
   return `
     <a class="mq-card" href="${gameUrl(g)}" target="_blank" rel="noopener" aria-label="${name}">
       <div class="mq-art">${art}</div>
