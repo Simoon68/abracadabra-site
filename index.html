@@ -283,36 +283,16 @@ section{padding:96px 0}
 
 /* ---------- Contact ---------- */
 .contact{background:var(--abyss);border-top:1px solid var(--line)}
-.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
-.contact-grid .sec-head{margin-bottom:28px}
-.contact-side p{color:var(--mist);font-size:1rem;margin-bottom:14px}
-.contact-side a.mail{color:var(--foam);font-weight:600;border-bottom:1px solid var(--tooth)}
-.support{margin-top:30px;padding:24px;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
-.support b{display:block;font-family:var(--display);font-weight:800;font-size:1.1rem;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:6px}
-.support p{margin-bottom:16px;font-size:.95rem}
-.btn-discord{width:100%;background:#5865F2;color:#fff;gap:10px}
+.contact-tiles{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:960px;margin:0 auto}
+.tile{border:1px solid var(--line);border-radius:var(--r);background:var(--card);padding:40px 32px 36px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.tile-kicker{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--tooth);margin-bottom:14px}
+.tile h3{font-size:clamp(1.5rem,3.2vw,2rem);letter-spacing:-.03em}
+.tile p{margin:12px 0 26px;color:var(--mist);font-size:1rem;line-height:1.55;max-width:34ch}
+.tile-btn{width:100%;max-width:380px;padding:18px 20px;font-size:1rem;margin-top:auto;text-transform:none;letter-spacing:0}
+.btn-discord{background:#5865F2;color:#fff;gap:10px}
 .btn-discord:hover{filter:brightness(1.08)}
-.btn-discord svg{width:20px;height:20px;fill:currentColor}
-.reply-note{margin-top:26px;padding:16px 18px;border:1px solid var(--line);border-left:3px solid var(--tooth);border-radius:var(--r-sm);background:var(--card);font-size:.92rem;color:var(--mist)}
-.reply-note b{color:var(--foam);font-weight:600}
-form{border:1px solid var(--line);border-radius:var(--r);padding:30px;background:var(--card)}
-.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.f-field{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
-.f-field label{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mist)}
-.f-field input,.f-field textarea{padding:13px 14px;border-radius:var(--r-sm);border:1px solid var(--line-strong);background:var(--abyss);color:var(--foam);transition:border-color .15s}
-.f-field input::placeholder,.f-field textarea::placeholder{color:rgba(147,163,199,.55)}
-.f-field input:focus,.f-field textarea:focus{outline:0;border-color:var(--tooth)}
-.f-field textarea{min-height:150px;resize:vertical}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips label{cursor:pointer}
-.chips input{position:absolute;opacity:0;width:0;height:0}
-.chips span{display:inline-block;padding:9px 14px;border-radius:var(--r-sm);border:1px solid var(--line-strong);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mist);transition:all .15s}
-.chips input:checked + span{background:var(--tooth);color:var(--tooth-ink);border-color:var(--tooth)}
-.chips input:focus-visible + span{outline:2px solid var(--tooth);outline-offset:2px}
+.btn-discord svg{width:22px;height:22px;fill:currentColor}
 .form-status{margin-top:14px;font-weight:500;font-size:.92rem;min-height:1.4em}
-.form-status.ok{color:#4ADE80}
-.form-status.err{color:#FF8A8A}
-.hp{position:absolute;left:-9999px;opacity:0}
 
 /* ---------- Footer ---------- */
 footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
@@ -331,7 +311,8 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
   .slide-cap{padding:22px 22px 48px}
   .dots{bottom:10px}
   .hero-stats{gap:14px}
-  .press-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+  .press-grid{grid-template-columns:1fr;gap:44px}
+  .contact-tiles{grid-template-columns:1fr}
   .press-row{grid-template-columns:1fr}
   .game-featured{grid-template-columns:1fr}
   .game-featured .art{aspect-ratio:16/9;min-height:0}
@@ -340,11 +321,10 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
   .game-card.flag-4{display:none}
   .nav{gap:14px}
   .nav-cta{display:none}
-  .game-grid,.f-row,.partner-grid,.merch-grid{grid-template-columns:1fr}
+  .game-grid,.partner-grid,.merch-grid{grid-template-columns:1fr}
   .hero-stats{grid-template-columns:1fr;gap:26px}
   .hero{padding:56px 0 64px}
   .game-featured .info{padding:26px}
-  form{padding:22px}
   section{padding:68px 0}
   .brand img{height:38px}
 }
@@ -437,7 +417,7 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
           <h2>Our story</h2>
         </div>
         <p><strong>Abracadabra Studio</strong> began with two twelve-year-olds who loved Roblox. Simoon68 and Opplo met on the platform in 2010, in the era of clans and guilds, and quickly became allies. Building bases, scripting weapons and organising players taught them more about making games than any classroom could, and it never felt like work. It felt like play.</p>
-        <p>That is still the spirit of the studio. Their first game together, <strong>Wings</strong>, arrived in 2014, and a year later <strong>RoBowling</strong> gave them their first hit. In 2017 they formed Abracadabra and released <strong>SharkBite</strong>, which grew into one of the biggest franchises on Roblox, with over 2 billion visits across the series. Its yellow duck boat became the face of the game, then a toy on shelves around the world, alongside the Nerf blasters and figures that followed. The community made it their own too, with a close-knit fanbase that turns out its own memes, duckling in-jokes and more duck boat art than we could ever have drawn ourselves. A place in the Roblox Accelerator program took them to Roblox HQ, where <strong>Backpacking</strong> was built.</p>
+        <p>That is still the spirit of the studio. Their first game together, <strong>Wings</strong>, arrived in 2014, and a year later <strong>RoBowling</strong> gave them their first hit. In 2017 they formed Abracadabra and released <strong>SharkBite</strong>, which grew into one of the biggest franchises on Roblox, with over 2 billion visits across the series. Its yellow duck boat became the face of the game, then a toy on shelves around the world, alongside the Nerf blasters and figures that followed. A place in the Roblox Accelerator program took them to Roblox HQ, where <strong>Backpacking</strong> was built.</p>
         <p>Today Abracadabra is a team of magical developers, a community of more than a million members, and over 2.5 billion visits across our games. We make games because we love playing them, every world is built in-house, and we are only getting started.</p>
       </div>
     </div>
@@ -549,42 +529,27 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
 
 <!-- ============ CONTACT ============ -->
 <section class="contact" id="contact">
-  <div class="wrap contact-grid">
-    <div class="contact-side">
-      <div class="sec-head">
-        <h2>Get in touch</h2>
-        <p>Brand partnerships, press, or you just really love sharks. Tell us what you're thinking.</p>
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center;max-width:none;margin-bottom:40px">
+      <h2>Get in touch</h2>
+    </div>
+    <div class="contact-tiles">
+      <div class="tile">
+        <div class="tile-kicker">Brands and press</div>
+        <h3>Want to work with us?</h3>
+        <p>Partnerships, sponsorships, media and everything business.</p>
+        <a class="btn btn-gold tile-btn" href="mailto:business@abracadabra.gg">business@abracadabra.gg</a>
       </div>
-      <p>Prefer email? Write to <a class="mail" href="mailto:business@abracadabra.gg">business@abracadabra.gg</a>.</p>
-      <div class="support">
-        <b>Need support?</b>
+      <div class="tile">
+        <div class="tile-kicker">Players</div>
+        <h3>Need support?</h3>
         <p>Bug reports, moderation and feedback. Reach the team on Discord.</p>
-        <a class="btn btn-discord" href="https://discord.gg/abracadabra" target="_blank" rel="noopener">
+        <a class="btn btn-discord tile-btn" href="https://discord.gg/abracadabra" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.2a18 18 0 0 0-5.5 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9 -.2 13.4.2 17.8a19.9 19.9 0 0 0 6 3l1.3-2.1c-.7-.3-1.4-.6-2-1l.5-.4a14.2 14.2 0 0 0 12.1 0l.5.4c-.7.4-1.4.7-2.1 1l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.1-.8-9.5-3.5-13.4zM8 15.3c-1.2 0-2.1-1-2.1-2.3S6.8 10.7 8 10.7s2.2 1 2.1 2.3c0 1.2-.9 2.3-2.1 2.3zm8 0c-1.2 0-2.1-1-2.1-2.3s.9-2.3 2.1-2.3 2.2 1 2.1 2.3c0 1.2-.9 2.3-2.1 2.3z"/></svg>
           Join our Discord
         </a>
       </div>
     </div>
-    <form id="contact-form" novalidate>
-      <div class="f-row">
-        <div class="f-field"><label for="f-name">Name</label><input id="f-name" name="name" required placeholder="Your name" autocomplete="name"></div>
-        <div class="f-field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required placeholder="you@company.com" autocomplete="email"></div>
-      </div>
-      <div class="f-field"><label for="f-company">Company or brand</label><input id="f-company" name="company" placeholder="Optional" autocomplete="organization"></div>
-      <div class="f-field">
-        <label>What's this about?</label>
-        <div class="chips">
-          <label><input type="radio" name="topic" value="Brand activation" checked><span>Brand activation</span></label>
-          <label><input type="radio" name="topic" value="Press / media"><span>Press / media</span></label>
-          <label><input type="radio" name="topic" value="Sponsorship"><span>Sponsorship</span></label>
-          <label><input type="radio" name="topic" value="Other"><span>Other</span></label>
-        </div>
-      </div>
-      <div class="f-field"><label for="f-msg">Message</label><textarea id="f-msg" name="message" required placeholder="Tell us about your brand, your goals and what you'd like to build."></textarea></div>
-      <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
-      <button class="btn btn-gold" type="submit" id="f-submit">Send message</button>
-      <div class="form-status" id="form-status" aria-live="polite"></div>
-    </form>
   </div>
 </section>
 
@@ -608,17 +573,10 @@ footer{border-top:1px solid var(--line);padding:32px 0;background:var(--abyss)}
    ============================================================ */
 const GROUP_ID = 997074;
 const REFRESH_MS = 60000;
-const CONTACT_EMAIL = "business@abracadabra.gg";
-
 // Netflix tile: plays the video from the X post by default. To use YouTube instead,
 // upload the clip (Unlisted is fine) and paste the video ID here — the part after "v=" in the URL.
 const NIMONA_YOUTUBE_ID = "";
 
-// Email forwarding for the contact form. Sign up at https://formspree.io (free),
-// create a form that delivers to business@abracadabra.gg, and paste its endpoint here:
-//   const FORM_ENDPOINT = "https://formspree.io/f/xxxxxxxx";
-// Until then the form falls back to opening the visitor's email app pre-filled.
-const FORM_ENDPOINT = "";
 
 // Roblox API mirror with CORS enabled. Swap for your own proxy if you prefer.
 const API = "https://games.roproxy.com";
@@ -801,38 +759,6 @@ async function loadLive(){
     setLiveCount(null);
   }
 }
-
-/* ============================================================
-   Contact form
-   ============================================================ */
-$("contact-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const form = e.target, status = $("form-status"), btn = $("f-submit");
-  status.className = "form-status"; status.textContent = "";
-  if (!form.name.value.trim() || !form.email.checkValidity() || !form.message.value.trim()){
-    status.classList.add("err"); status.textContent = "Please add your name, a valid email and a message.";
-    return;
-  }
-  const data = Object.fromEntries(new FormData(form).entries());
-  const subject = `[abracadabra.gg] ${data.topic} — ${data.name}${data.company ? " (" + data.company + ")" : ""}`;
-  if (!FORM_ENDPOINT){
-    const body = `Name: ${data.name}\nEmail: ${data.email}\nCompany: ${data.company || "-"}\nTopic: ${data.topic}\n\n${data.message}`;
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    status.classList.add("ok"); status.textContent = "Opening your email app…";
-    return;
-  }
-  btn.disabled = true; btn.textContent = "Sending…";
-  try{
-    const r = await fetch(FORM_ENDPOINT, { method:"POST", headers:{ "Content-Type":"application/json", "Accept":"application/json" }, body: JSON.stringify({ ...data, _subject: subject }) });
-    if (!r.ok) throw new Error(r.status);
-    form.reset();
-    status.classList.add("ok"); status.textContent = "Sent. We'll get back to you soon.";
-    btn.textContent = "Sent";
-  } catch(err){
-    status.classList.add("err"); status.textContent = `Couldn't send. Email us directly at ${CONTACT_EMAIL}.`;
-    btn.disabled = false; btn.textContent = "Send message";
-  }
-});
 
 /* ============================================================
    Merch slider
